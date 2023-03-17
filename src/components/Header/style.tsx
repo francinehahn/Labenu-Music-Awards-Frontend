@@ -7,11 +7,11 @@ export const HeaderSection = styled.header `
     justify-content: space-between;
     align-items: center;
     padding: 0 10vw;
-    height: 10vh;
+    height: 8vh;
     border-bottom: 1px solid var(--light-grey);
 
     img {
-        width: 10%;
+        width: 8%;
     }
 
     nav {
