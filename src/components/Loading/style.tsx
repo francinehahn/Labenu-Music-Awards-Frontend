@@ -2,11 +2,12 @@ import styled from "styled-components"
 
 
 export const LoadingSection = styled.div `
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     border: 5px solid var(--light-grey);
     border-bottom: 5px solid black;
+    background-color: transparent;
     display: block;
     margin-bottom: 5vh;
     
