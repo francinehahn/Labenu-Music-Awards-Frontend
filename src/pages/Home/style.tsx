@@ -3,33 +3,42 @@ import styled from "styled-components"
 
 export const HomeSection = styled.section `
     background-color: black;
-    min-height: 90vh;
+    min-height: 100vh;
 
     img {
         display: block;
         width: 100%;
     }
 
-    #div-home {
-        padding: 5vh 5vw;
-        
-        h2 {
-            color: white;
-            text-align: center;
-            margin-bottom: 2vh;
-            font-size: 32px;
-        }
+    h2 {
+        color: white;
+        text-align: center;
+        margin: 8vh 0 5vh 0;
+        font-size: 32px;
+    }
 
-        #title-week-day {
-            color: white;
-            font-size: 23px;
-            padding: 1vh 0;
-        }
+    section {
+        display: flex;
+        justify-content: center;
+        gap: 13vw;
+        flex-wrap: wrap;
+        padding-bottom: 5vh;
 
-        div {
-            display: flex;
-            margin-bottom: 2vh;
-            gap: 1vw;
+        .div-home {
+            p {
+                color: white;
+            }
+
+            .title-week-day {
+                color: var(--dark-orange);
+                font-size: 23px;
+                padding: 1vh 0;
+            }
+
+            div {
+                margin-bottom: 2vh;
+                gap: 1vw;
+            }
         }
     }
 `

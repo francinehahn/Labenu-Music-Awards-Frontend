@@ -7,7 +7,7 @@ export const FooterSection = styled.footer `
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3vh;
+    padding: 4vh;
     border-top: 1px solid var(--light-grey);
 
     p {
