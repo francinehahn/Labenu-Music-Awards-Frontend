@@ -17,10 +17,18 @@ export const GlobalStyle = createGlobalStyle`
         --dark-grey: #33333352;
     }
 
+    label {
+        font-size: 16px;
+        color: white;
+    }
+
     input {
+        background-color: white;
         width: 25vw;
         font-size: 16px;
-        padding: .5vh;
+        color: black;
+        padding: .7vh .5vw;
+        border: none;
         :focus {
             outline: none;
         }
@@ -43,10 +51,10 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         display: block;
-        margin: 4vh auto 6vh auto;
+        margin: 4vh auto 5vh auto;
         border: none;
         border-radius: 35px;
-        padding: 1.5vh 3vw;
+        padding: 1.3vh 3vw;
         font-size: 18px;
         font-weight: 600;
         color: white;
