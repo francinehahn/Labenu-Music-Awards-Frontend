@@ -4,6 +4,7 @@ import imgdesktop from "../../images/img-home-desktop.png"
 import { Bands } from "../../components/Bands/Bands"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Footer } from "../../components/Footer/Footer"
+import { Loading } from "../../components/Loading/Loading"
 
 interface concert {
     id: string,
@@ -41,17 +42,17 @@ export function Home () {
                     <h2>Atrações confirmadas:</h2>
 
                     <h3 id="title-week-day">Sexta-feira</h3>
-                    {isLoadingFriday && <p>Carregando...</p>}
+                    {isLoadingFriday && <Loading/>}
                     {!isLoadingFriday && dataFriday && <div>{fridayConcerts}</div>}
                     {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
 
                     <h3 id="title-week-day">Sábado</h3>
-                    {isLoadingSaturday && <p>Carregando...</p>}
+                    {isLoadingSaturday && <Loading/>}
                     {!isLoadingSaturday && dataSaturday && <div>{saturdayConcerts}</div>}
                     {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
 
                     <h3 id="title-week-day">Domingo</h3>
-                    {isLoadingSunday && <p>Carregando...</p>}
+                    {isLoadingSunday && <Loading/>}
                     {!isLoadingSunday && dataSunday && <div>{sundayConcerts}</div>}
                     {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
                 </div>
