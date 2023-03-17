@@ -17,7 +17,7 @@ export function useRequestData (url: string, token?: string) {
             setData(response.data)
         }).catch(error => {
             setIsLoading(false)
-            setError(error.response.message)
+            setError(error.response.data)
     })}, [url])
 
     return [isLoading, data, error]

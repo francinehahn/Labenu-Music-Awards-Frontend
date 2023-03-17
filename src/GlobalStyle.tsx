@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         --dark-orange: #F47C00;
         --light-orange: #ffa071;
         --light-grey: #bababa;
-        --dark-grey: #3333337e;
+        --dark-grey: #33333352;
     }
 
     input {

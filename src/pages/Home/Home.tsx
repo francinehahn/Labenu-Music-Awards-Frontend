@@ -35,28 +35,36 @@ export function Home () {
     return (
         <>
             <Header/>
+
             <HomeSection>
-                <img src={imgdesktop}/>
+                <img src={imgdesktop} alt="Imagem de um show"/>
 
-                <div id="div-home">
-                    <h2>Atrações confirmadas:</h2>
+                <h2>Atrações confirmadas:</h2>
 
-                    <h3 id="title-week-day">Sexta-feira</h3>
-                    {isLoadingFriday && <Loading/>}
-                    {!isLoadingFriday && dataFriday && <div>{fridayConcerts}</div>}
-                    {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
+                <section>
+                    <div className="div-home">
+                        <h3 className="title-week-day">Sexta-feira</h3>
+                        {isLoadingFriday && <Loading/>}
+                        {!isLoadingFriday && dataFriday && <div>{fridayConcerts}</div>}
+                        {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
+                    </div>
 
-                    <h3 id="title-week-day">Sábado</h3>
-                    {isLoadingSaturday && <Loading/>}
-                    {!isLoadingSaturday && dataSaturday && <div>{saturdayConcerts}</div>}
-                    {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
+                    <div className="div-home">
+                        <h3 className="title-week-day">Sábado</h3>
+                        {isLoadingSaturday && <Loading/>}
+                        {!isLoadingSaturday && dataSaturday && <div>{saturdayConcerts}</div>}
+                        {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
+                    </div>
 
-                    <h3 id="title-week-day">Domingo</h3>
-                    {isLoadingSunday && <Loading/>}
-                    {!isLoadingSunday && dataSunday && <div>{sundayConcerts}</div>}
-                    {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
-                </div>
+                    <div className="div-home">
+                        <h3 className="title-week-day">Domingo</h3>
+                        {isLoadingSunday && <Loading/>}
+                        {!isLoadingSunday && dataSunday && <div>{sundayConcerts}</div>}
+                        {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
+                    </div>
+                </section>
             </HomeSection>
+
             <Footer/>
         </>
     )
