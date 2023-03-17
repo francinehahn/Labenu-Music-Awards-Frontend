@@ -9,6 +9,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
+    :root {
+        --dark-orange: #F45000;
+        --light-orange: #ffa071;
+        --light-grey: #bababa;
+        --dark-grey: #3333337e;
+    }
+
     input {
         width: 25vw;
         font-size: 16px;

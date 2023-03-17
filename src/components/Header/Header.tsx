@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom"
 import logo from "../../images/LAMA_logo.png"
+import { HeaderSection } from "./style"
+
 
 export function Header () {
     return (
-        <header>
+        <HeaderSection>
             <img src={logo} alt="Logo da Labenu Music Awards"/>
             <nav>
-                <Link to="">Shows</Link>
-                <Link to="">Login</Link>
+                <Link to="/">Página inicial</Link>
+                <Link to="/shows">Shows</Link>
+                <Link to="/fotos">Fotos</Link>
+                <Link to="/login">Login</Link>
             </nav>
-        </header>
+        </HeaderSection>
     )
 }

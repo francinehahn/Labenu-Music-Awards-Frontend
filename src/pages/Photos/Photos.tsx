@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header/Header"
 
 
-export function Profile () {
+export function Photos () {
     return (
         <>
             <Header/>
