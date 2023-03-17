@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
+        background-color: black;
     }
 
     :root {
@@ -41,8 +42,15 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     button {
+        display: block;
+        margin: 4vh auto 6vh auto;
         border: none;
-        border-radius: 3px;
+        border-radius: 35px;
+        padding: 1.5vh 3vw;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        background-color: var(--dark-orange);
         :hover {
             opacity: .8;
             cursor: pointer;

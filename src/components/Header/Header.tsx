@@ -9,7 +9,7 @@ export function Header () {
             <img src={logo} alt="Logo da Labenu Music Awards"/>
             <nav>
                 <Link to="/">Página inicial</Link>
-                <Link to="/shows">Shows</Link>
+                <Link to="/ingressos">Ingressos</Link>
                 <Link to="/fotos">Fotos</Link>
                 <Link to="/login">Login</Link>
             </nav>

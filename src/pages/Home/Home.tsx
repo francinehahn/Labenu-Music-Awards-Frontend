@@ -5,6 +5,7 @@ import { Bands } from "../../components/Bands/Bands"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Footer } from "../../components/Footer/Footer"
 import { Loading } from "../../components/Loading/Loading"
+import { useNavigate } from "react-router-dom"
 
 interface concert {
     id: string,
@@ -19,6 +20,8 @@ export function Home () {
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=friday")
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=saturday")
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=sunday")
+
+    const navigate = useNavigate()
 
     const fridayConcerts = dataFriday && dataFriday.map((item: concert, index: number) => {
         return <Bands key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
@@ -63,6 +66,8 @@ export function Home () {
                         {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
                     </div>
                 </section>
+
+                <button onClick={() => navigate("/ingressos")}>Ingressos</button>
             </HomeSection>
 
             <Footer/>

@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { Concerts } from "../pages/Concerts/Concerts"
 import { Home } from "../pages/Home/Home"
 import { Login } from "../pages/Login/Login"
 import { Photos } from "../pages/Photos/Photos"
@@ -13,7 +12,6 @@ export function Router() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home/>}/>
-                <Route path="/shows" element={<Concerts/>}/>
                 <Route path="/fotos" element={<Photos/>}/>
                 <Route path="/ingressos" element={<Tickets/>}/>
                 <Route path="/profile" element={<Profile/>}/>
