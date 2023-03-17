@@ -8,7 +8,7 @@ export const HeaderSection = styled.header `
     align-items: center;
     padding: 0 10vw;
     height: 10vh;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--light-grey);
 
     img {
         width: 10%;

@@ -3,6 +3,7 @@ import { HomeSection } from "./style"
 import imgdesktop from "../../images/img-home-desktop.png" 
 import { Bands } from "../../components/Bands/Bands"
 import { useRequestData } from "../../hooks/useRequestData"
+import { Footer } from "../../components/Footer/Footer"
 
 interface concert {
     id: string,
@@ -55,6 +56,7 @@ export function Home () {
                     {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
                 </div>
             </HomeSection>
+            <Footer/>
         </>
     )
 }
