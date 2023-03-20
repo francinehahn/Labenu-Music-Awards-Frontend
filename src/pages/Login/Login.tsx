@@ -70,7 +70,7 @@ export function Login () {
                     </div>
 
                     <p>{axiosError}</p>
-                    <button>{!isLoading? "Entrar" : <Loading/>}</button>
+                    <button>{!isLoading? "Entrar" : <Loading color="orange"/>}</button>
                 </form>
 
                 <span>

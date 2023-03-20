@@ -47,21 +47,21 @@ export function Home () {
                 <section>
                     <div className="div-home">
                         <h3 className="title-week-day">Sexta-feira</h3>
-                        {isLoadingFriday && <Loading/>}
+                        {isLoadingFriday && <Loading color="black"/>}
                         {!isLoadingFriday && dataFriday && <div>{fridayConcerts}</div>}
                         {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
                     </div>
 
                     <div className="div-home">
                         <h3 className="title-week-day">Sábado</h3>
-                        {isLoadingSaturday && <Loading/>}
+                        {isLoadingSaturday && <Loading color="black"/>}
                         {!isLoadingSaturday && dataSaturday && <div>{saturdayConcerts}</div>}
                         {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
                     </div>
 
                     <div className="div-home">
                         <h3 className="title-week-day">Domingo</h3>
-                        {isLoadingSunday && <Loading/>}
+                        {isLoadingSunday && <Loading color="black"/>}
                         {!isLoadingSunday && dataSunday && <div>{sundayConcerts}</div>}
                         {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
                     </div>

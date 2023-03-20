@@ -127,7 +127,7 @@ export function Signup () {
                         <p>{errorRole}</p>
                     </div>
 
-                    <button>{isLoading? <Loading/> : "Cadastrar"}</button>
+                    <button>{isLoading? <Loading color={"orange"}/> : "Cadastrar"}</button>
                 </form>
 
                 <span id="successMessage">{successMessage}</span>

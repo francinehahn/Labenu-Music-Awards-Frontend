@@ -1,5 +1,9 @@
 import {LoadingSection} from './style'
 
-export function Loading () {
-    return <LoadingSection></LoadingSection>
+interface propsColor {
+    color: string
+}
+
+export function Loading (props: propsColor) {
+    return <LoadingSection color = {props.color}></LoadingSection>
 }
