@@ -18,7 +18,7 @@ export const LoginSection = styled.section `
         display: flex;
         flex-direction: column;
         gap: 2vh;
-        margin-top: 2vh;
+        margin-top: 4vh;
         div {
             display: flex;
             flex-direction: column;
