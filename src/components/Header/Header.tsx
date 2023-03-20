@@ -5,11 +5,9 @@ import { HeaderSection } from "./style"
 
 export function Header () {
     const token = localStorage.getItem("token")
-    const role = localStorage.getItem("role")
 
     const handleLogout = () => {
         localStorage.removeItem("token")
-        localStorage.removeItem("role")
     }
 
     return (

@@ -9,7 +9,6 @@ export const LoadingSection = styled.div `
     border-bottom: 5px solid black;
     background-color: transparent;
     display: block;
-    margin-bottom: 5vh;
     
     @keyframes rotation {
         0% {rotate: 0}

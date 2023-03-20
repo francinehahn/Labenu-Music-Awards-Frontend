@@ -35,10 +35,9 @@ export function Login () {
             return
         }
 
-        axios.put("https://lama-fctv.onrender.com/users/login", form)
+        axios.post("https://lama-fctv.onrender.com/users/login", form)
         .then(response => {
             localStorage.setItem("token", response.data.token)
-            localStorage.setItem("role", response.data.role)
             setIsLoading(false)
             navigate("/")
         })
