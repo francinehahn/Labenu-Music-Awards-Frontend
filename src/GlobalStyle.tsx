@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         color: white;
     }
 
-    input {
+    input, select {
         background-color: white;
         width: 25vw;
         font-size: 16px;
@@ -63,5 +63,10 @@ export const GlobalStyle = createGlobalStyle`
             opacity: .8;
             cursor: pointer;
         }
+    }
+
+    option {
+        background-color: white;
+        color: black;
     }
 `
