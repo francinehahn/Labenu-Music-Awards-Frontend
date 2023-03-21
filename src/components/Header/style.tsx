@@ -9,6 +9,9 @@ export const HeaderSection = styled.header `
     padding: 0 10vw;
     height: 8vh;
     border-bottom: 1px solid var(--light-grey);
+    position: sticky;
+    top: 0;
+    left: 0;
 
     img {
         width: 8%;
