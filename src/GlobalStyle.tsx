@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         display: block;
-        margin: 4vh auto 5vh auto;
+        margin: 0 auto 0 auto;
         border: none;
         border-radius: 35px;
         padding: 1.3vh 3vw;
