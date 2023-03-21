@@ -1,11 +1,11 @@
-import styled from "styled-components";
-
+import styled from "styled-components"
 
 
 export const PhotoSection = styled.section `
     display: flex;
     flex-direction: column;
     margin: 0 4vw 5vh 4vw;
+    min-height: 68vh;
 
     h2 {
         font-size: 24px;
