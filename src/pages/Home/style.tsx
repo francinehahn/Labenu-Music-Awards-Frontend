@@ -41,4 +41,8 @@ export const HomeSection = styled.section `
             }
         }
     }
+
+    button {
+        margin: 1vh auto 5vh auto;
+    }
 `

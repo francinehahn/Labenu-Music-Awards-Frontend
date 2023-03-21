@@ -28,6 +28,10 @@ export const LoginSection = styled.section `
                 font-weight: 400;
             }
         }
+
+        button {
+            margin-bottom: 3vh;
+        }
     }
 
     span {

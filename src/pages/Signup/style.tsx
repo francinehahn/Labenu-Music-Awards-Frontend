@@ -29,6 +29,10 @@ export const SignupSection = styled.section `
                 font-weight: 400;
             }
         }
+
+        button {
+            margin-top: 2vh;
+        }
     }
 
     #successMessage {
