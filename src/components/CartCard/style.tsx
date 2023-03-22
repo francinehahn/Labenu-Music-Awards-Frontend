@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export const CartCard = styled.div `
+export const CartSection = styled.div `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -25,9 +25,11 @@ export const CartCard = styled.div `
 
     p {
         margin-bottom: 1vh;
+        color: white;
     }
 
     svg {
+        color: white;
         width: 25px;
         height: 25px;
         margin-bottom: 1vh;
@@ -40,7 +42,6 @@ export const CartCard = styled.div `
 
 export const Units = styled.div `
     display: flex;
-    border: 0.5px solid grey;
     margin-bottom: 1vh;
     
     @media screen and (min-width: 1000px) {
