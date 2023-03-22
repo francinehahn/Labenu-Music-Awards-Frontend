@@ -1,4 +1,4 @@
-import { TicketCard } from "./style"
+import { TicketSection } from "./style"
 
 interface ticketProps {
     id: string,
@@ -8,7 +8,9 @@ interface ticketProps {
     startTime: Date,
     endTime: Date,
     bandName: string,
-    img: string
+    img: string,
+    reload: boolean,
+    setReload: any
 }
 
 interface products {
@@ -18,7 +20,7 @@ interface products {
     units: number
 }
 
-export function Ticket (props: ticketProps) {
+export function TicketCard (props: ticketProps) {
     
     const handleAddTicketToCart = () => {
         if (localStorage.getItem("products") === null) {
@@ -33,14 +35,15 @@ export function Ticket (props: ticketProps) {
                 if (item.ticketName === props.ticketName) item.units += 1
             })
             localStorage.setItem("products", JSON.stringify(productsInCart))
+            props.setReload(!props.reload)
         } else {
             localStorage.setItem("products", JSON.stringify([...productsInCart, {id: props.id, ticketName: props.ticketName, price: props.price, units: 1}]))
+            props.setReload(!props.reload)
         }
-        
     }
     
     return (
-        <TicketCard>
+        <TicketSection>
             <img src={props.img}/>
             
             <h3>{props.ticketName}</h3>
@@ -50,6 +53,6 @@ export function Ticket (props: ticketProps) {
             <p>Ingressos disponíveis: {props.ticketsAvailable}</p>
 
             <button onClick={handleAddTicketToCart}>Comprar</button>
-        </TicketCard>
+        </TicketSection>
     )
 }

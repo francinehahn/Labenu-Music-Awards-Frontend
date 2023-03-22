@@ -29,5 +29,21 @@ export const HeaderSection = styled.header `
                 color: var(--light-orange);
             }
         }
+
+        span {
+            display: flex;
+            p {
+                font-size: 14px;
+                background-color: white;
+                padding: 0 8px;
+                margin: -10px 0 15px 0;
+                border-radius: 10px;
+            }
+            svg {
+                color: white;
+                height: 20px;
+                width: 20px;
+            }
+        }
     }
 `

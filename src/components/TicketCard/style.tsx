@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const TicketCard = styled.div `
+export const TicketSection = styled.div `
     display: flex;
     flex-direction: column;
     padding: 2.5vh 1vw 3.5vh 1vw;

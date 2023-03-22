@@ -75,7 +75,7 @@ export function Cart () {
 
     return (
         <>
-            <Header/>
+            <Header reload={reload}/>
 
             <CartSection>
                 {renderData}

@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
-import { Ticket } from "../../components/Ticket/Ticket"
+import { TicketCard } from "../../components/TicketCard/TicketCard"
 import { useRequestData } from "../../hooks/useRequestData"
 import { TicketsSection } from "./style"
 import ticketFriday from "../../images/ticket-friday.png"
@@ -22,12 +23,18 @@ interface ticket {
 }
 
 export function Tickets () {
+    const [reload, setReload] = useState(true)
+    let productsInCart = localStorage.getItem("products")
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=friday")
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=saturday")
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=sunday")
 
+    useEffect(() => {
+        productsInCart = localStorage.getItem("products")
+    }, [reload])
+
     const renderdataFriday = dataFriday && dataFriday.map((item: ticket) => {
-        return <Ticket
+        return <TicketCard
                     key={item.id}
                     id={item.id}
                     ticketName={item.ticket_name}
@@ -37,11 +44,13 @@ export function Tickets () {
                     endTime={item.end_time}
                     bandName={item.band_name}
                     img={ticketFriday}
+                    reload={reload}
+                    setReload={setReload}
                 />
     })
 
     const renderdataSaturday = dataSaturday && dataSaturday.map((item: ticket) => {
-        return <Ticket
+        return <TicketCard
                     key={item.id}
                     id={item.id}
                     ticketName={item.ticket_name}
@@ -51,11 +60,13 @@ export function Tickets () {
                     endTime={item.end_time}
                     bandName={item.band_name}
                     img={ticketSaturday}
+                    reload={reload}
+                    setReload={setReload}
                 />
     })
 
     const renderdataSunday = dataSunday && dataSunday.map((item: ticket) => {
-        return <Ticket
+        return <TicketCard
                     key={item.id}
                     id={item.id}
                     ticketName={item.ticket_name}
@@ -65,6 +76,8 @@ export function Tickets () {
                     endTime={item.end_time}
                     bandName={item.band_name}
                     img={ticketSunday}
+                    reload={reload}
+                    setReload={setReload}
                 />
     })
 
