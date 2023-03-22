@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 
-export function useRequestData (url: string, token?: string) {
+export function useRequestData (url: string, token?: any) {
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [data, setData] = useState<any>(undefined)
     const [error, setError] = useState<string>("")
