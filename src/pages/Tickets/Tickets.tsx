@@ -73,7 +73,7 @@ export function Tickets () {
             <Header/>
 
             <TicketsSection>
-                {(isLoadingFriday || isLoadingSaturday || isLoadingSunday) && <Loading color="black"/>}
+                {(isLoadingFriday && isLoadingSaturday && isLoadingSunday) && <div id="loading"><Loading color="black"/></div>}
                 {!isLoadingFriday && dataFriday && <div className="ticket-div">{renderdataFriday}</div>}
                 {!isLoadingFriday && !dataFriday && errorFriday && <p className="error">{errorFriday}</p>}
 

@@ -7,6 +7,10 @@ export const TicketsSection = styled.section `
     margin: 5vh 4vw 5vh 4vw;
     min-height: 68vh;
 
+    #loading {
+        margin-top: 30vh;
+    }
+
     h2 {
         font-size: 26px;
         margin: 5vh 0 2vh 0;

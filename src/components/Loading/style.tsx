@@ -9,6 +9,7 @@ export const LoadingSection = styled.div `
     border-bottom: 5px solid ${props => props.color === "black"? "#000000" : "#F47C00"};
     background-color: transparent;
     display: block;
+    margin: 0 auto;
     
     @keyframes rotation {
         0% {rotate: 0}
