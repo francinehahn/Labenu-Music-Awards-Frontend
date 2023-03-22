@@ -11,33 +11,28 @@ interface ticketProps {
 }
 
 interface products {
-    [ticketName: string]: {
-        price: number,
-        units: number
-    }
+    ticketName: string
+    price: number,
+    units: number
 }
 
 export function Ticket (props: ticketProps) {
+    
     const handleBuyTicket = () => {
         if (localStorage.getItem("products") === null) {
-            const newProduct: products = {
-                [props.ticketName]: {price: props.price, units: 1}
-            }
-            localStorage.setItem("products", JSON.stringify(newProduct))
-            return
+            localStorage.setItem("products", JSON.stringify([]))
         }
 
-        let productsInCart: any = localStorage.getItem("products")
-        
-        if (productsInCart[props.ticketName]) {
-            productsInCart[props.ticketName].units += 1 
-            //localStorage.setItem("products", JSON.stringify(productsInCart))
+        let productsInCart = JSON.parse(localStorage.getItem("products") || "")
+        const filterProducts = productsInCart.filter((item: products) => item.ticketName === props.ticketName)
+
+        if (filterProducts.length > 0) {
+            productsInCart.forEach((item: products) => {
+                if (item.ticketName === props.ticketName) item.units += 1
+            })
+            localStorage.setItem("products", JSON.stringify(productsInCart))
         } else {
-            productsInCart[props.ticketName] = {
-                price: props.price,
-                units: 1
-            }
-            //localStorage.setItem("products", JSON.stringify([...productsInCart, {ticketName: props.ticketName, price: props.price, units: 1}]))
+            localStorage.setItem("products", JSON.stringify([...productsInCart, {ticketName: props.ticketName, price: props.price, units: 1}]))
         }
         
     }
