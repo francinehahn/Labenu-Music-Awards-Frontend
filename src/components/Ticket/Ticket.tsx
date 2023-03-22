@@ -1,6 +1,7 @@
 import { TicketCard } from "./style"
 
 interface ticketProps {
+    id: string,
     ticketName: string,
     price: number,
     ticketsAvailable: number,
@@ -11,6 +12,7 @@ interface ticketProps {
 }
 
 interface products {
+    id: string,
     ticketName: string
     price: number,
     units: number
@@ -18,7 +20,7 @@ interface products {
 
 export function Ticket (props: ticketProps) {
     
-    const handleBuyTicket = () => {
+    const handleAddTicketToCart = () => {
         if (localStorage.getItem("products") === null) {
             localStorage.setItem("products", JSON.stringify([]))
         }
@@ -32,7 +34,7 @@ export function Ticket (props: ticketProps) {
             })
             localStorage.setItem("products", JSON.stringify(productsInCart))
         } else {
-            localStorage.setItem("products", JSON.stringify([...productsInCart, {ticketName: props.ticketName, price: props.price, units: 1}]))
+            localStorage.setItem("products", JSON.stringify([...productsInCart, {id: props.id, ticketName: props.ticketName, price: props.price, units: 1}]))
         }
         
     }
@@ -47,7 +49,7 @@ export function Ticket (props: ticketProps) {
             <p>Horário: {props.startTime.toString()} - {props.endTime.toString()}</p>
             <p>Ingressos disponíveis: {props.ticketsAvailable}</p>
 
-            <button onClick={handleBuyTicket}>Comprar</button>
+            <button onClick={handleAddTicketToCart}>Comprar</button>
         </TicketCard>
     )
 }

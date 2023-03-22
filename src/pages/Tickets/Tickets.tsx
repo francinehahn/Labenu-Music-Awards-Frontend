@@ -25,11 +25,11 @@ export function Tickets () {
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=friday")
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=saturday")
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=sunday")
-    console.log(dataFriday)
 
     const renderdataFriday = dataFriday && dataFriday.map((item: ticket) => {
         return <Ticket
                     key={item.id}
+                    id={item.id}
                     ticketName={item.ticket_name}
                     price={item.price}
                     ticketsAvailable={item.tickets_available}
@@ -43,6 +43,7 @@ export function Tickets () {
     const renderdataSaturday = dataSaturday && dataSaturday.map((item: ticket) => {
         return <Ticket
                     key={item.id}
+                    id={item.id}
                     ticketName={item.ticket_name}
                     price={item.price}
                     ticketsAvailable={item.tickets_available}
@@ -56,6 +57,7 @@ export function Tickets () {
     const renderdataSunday = dataSunday && dataSunday.map((item: ticket) => {
         return <Ticket
                     key={item.id}
+                    id={item.id}
                     ticketName={item.ticket_name}
                     price={item.price}
                     ticketsAvailable={item.tickets_available}

@@ -1,51 +1,30 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { CartCard } from "../../components/CartCard/CartCard"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
-import { CartSection } from "./style"
+import { ButtonDiv, CartSection } from "./style"
 
+interface products {
+    id: string,
+    ticketName: string
+    price: number,
+    units: number
+}
 
 export function Cart () {
     const token = localStorage.getItem("token")
-    let productsInCart = localStorage.getItem(JSON.parse("products")) !== null && localStorage.getItem(JSON.parse("products"))
-    let products = productsInCart
+    let productsInCart = localStorage.getItem("products")
     const [reload, setReload] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
     
     const navigate = useNavigate()
 
     useEffect(() => {
-        productsInCart = JSON.parse(localStorage.getItem("products"))
+        productsInCart = localStorage.getItem("products")
     }, [reload])
-
-    const handleReduceUnit = (name) => {
-        for (let product of products) {
-            if (product.name === name && product.units > 1) {
-                product.units -= 1
-            }
-        }
-
-        localStorage.setItem("products", JSON.stringify(products))
-        setReload(!reload)
-    }
-
-    const handleIncreaseUnit = (name) => {
-        for (let product of products) {
-            product.name === name? product.units += 1 : product.units += 0
-        }
-
-        localStorage.setItem("products", JSON.stringify(products))
-        setReload(!reload)
-    }
-
-    const removeProduct = (name) => {
-        products = productsInCart.filter(item => item.name !== name)
-
-        localStorage.setItem("products", JSON.stringify(products))
-        setReload(!reload)
-    }
     
     const handlePayment = () => {
         if (!productsInCart || productsInCart.length === 0) {
@@ -54,17 +33,16 @@ export function Cart () {
             navigate("/login")
         } else {
             setIsLoading(true)
-            const body = []
+            let body
             
-            for (let product of products) {
-                body.push({
-                    productId: product.id,
-                    quantity: product.units
-                })
+            for (let ticket of JSON.parse(productsInCart)) {
+                body = {
+                    ticketId: ticket.id,
+                    units: ticket.units
+                }
             }
-            console.log(body)
 
-            axios.post('https://ecommerce-backend-8st9.onrender.com/purchases', body, {
+            axios.post('https://lama-fctv.onrender.com/tickets/purchase', body, {
                 headers: {
                     Authorization: token
                 }
@@ -81,17 +59,16 @@ export function Cart () {
     }
 
     let totalPrice = 0
-    const renderData = productsInCart && productsInCart.map((item, index) => {
+    const renderData = productsInCart && JSON.parse(productsInCart).map((item: products) => {
         totalPrice += item.price * item.units
         return (
-            <Cart
-                key={index}
-                ticketName={item.ticket_name}
-                price={item.price}
+            <CartCard
+                key={item.id}
+                ticketName={item.ticketName}
                 units={item.units}
-                handleReduceUnit={() => handleReduceUnit(item.name)}
-                handleIncreaseUnit={() => handleIncreaseUnit(item.name)}
-                removeProduct={() => removeProduct(item.name)}
+                price={item.price}
+                reload={reload}
+                setReload={setReload}
             />
         )
     })
@@ -102,16 +79,12 @@ export function Cart () {
 
             <CartSection>
                 {renderData}
-
-                {(!productsInCart || productsInCart.length === 0) && (
-                    <span>
-                        <p>Carrinho vazio</p>
-                    </span>
-                )}
-                {totalPrice > 0 && <p id={"totalPrice"}>Valor total: R${totalPrice.toFixed(2).toString().replace(".", ",")}</p>}
+                {totalPrice > 0 && <p id="totalPrice">Valor total: R${totalPrice.toFixed(2).toString().replace(".", ",")}</p>}
             </CartSection>
 
-            {productsInCart.length > 0 && <button onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>}
+            <ButtonDiv>
+                <button id="button" onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>
+            </ButtonDiv>
 
             <Footer/>
         </>
