@@ -1,6 +1,7 @@
 import { Header } from "../../components/Header/Header"
 import { HomeSection } from "./style"
-import imgdesktop from "../../images/img-home-desktop.png" 
+import imgdesktop from "../../images/img-home-desktop.png"
+import imgMobile from "../../images/img-home-mobile.png"
 import { Bands } from "../../components/Bands/Bands"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Footer } from "../../components/Footer/Footer"
@@ -40,7 +41,8 @@ export function Home () {
             <Header/>
 
             <HomeSection>
-                <img src={imgdesktop} alt="Imagem de um show"/>
+                <img id="imgDesktop" src={imgdesktop} alt="Imagem de um show"/>
+                <img id="imgMobile" src={imgMobile} alt="Imagem de um show"/>
 
                 <h2>Atrações confirmadas:</h2>
 
