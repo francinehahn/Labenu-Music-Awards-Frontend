@@ -10,7 +10,7 @@ interface propsband {
 export function Bands (band: propsband) {
     return (
         <Container>
-            <h3>{band.bandName}</h3>
+            <h4>{band.bandName}</h4>
             <p>{band.startTime} - {band.endTime}</p>
         </Container>
     )

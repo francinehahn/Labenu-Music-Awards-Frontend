@@ -69,4 +69,31 @@ export const GlobalStyle = createGlobalStyle`
         background-color: white;
         color: black;
     }
+
+    h2 {
+        @media screen and (min-width: 1000px) {
+            font-size: 32px;
+        }
+        @media screen and (max-width: 1000px) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        @media screen and (min-width: 1000px) {
+            font-size: 28px;
+        }
+        @media screen and (max-width: 1000px) {
+            font-size: 24px;
+        }
+    }
+
+    h4 {
+        @media screen and (min-width: 1000px) {
+            font-size: 22px;
+        }
+        @media screen and (max-width: 1000px) {
+            font-size: 18px;
+        }
+    }
 `

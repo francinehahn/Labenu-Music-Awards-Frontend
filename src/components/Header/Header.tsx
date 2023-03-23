@@ -1,7 +1,7 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../../images/LAMA_logo.png"
-import { HeaderSection } from "./style"
+import { HeaderDesktop, HeaderMobile, HeaderSection, MobileSymbol } from "./style"
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 interface headerProps {
@@ -11,6 +11,7 @@ interface headerProps {
 export function Header (props: headerProps) {
     const token = localStorage.getItem("token")
     let ticketsInCart = localStorage.getItem("products")
+    const [showMobileMenu, setShowMobileMenu] = useState(false)
 
     useEffect(() => {
         ticketsInCart = localStorage.getItem("products")
@@ -20,9 +21,8 @@ export function Header (props: headerProps) {
         localStorage.removeItem("token")
     }
 
-    return (
-        <HeaderSection>
-            <img src={logo} alt="Logo da Labenu Music Awards"/>
+    const nav = () => {
+        return (
             <nav>
                 <Link to="/">Página inicial</Link>
                 {token !== null && <Link to="/profile">Minha Conta</Link>}
@@ -39,6 +39,29 @@ export function Header (props: headerProps) {
                 {token === null && <Link to="/login">Login</Link>}
                 {token !== null && <Link to="/" onClick={handleLogout}>Logout</Link>}
             </nav>
+        )
+    }
+
+    return (
+        <HeaderSection>
+            <img src={logo} alt="Logo da Labenu Music Awards"/>
+
+            <HeaderDesktop>
+                {nav()}
+            </HeaderDesktop>
+
+            <MobileSymbol onClick={() => setShowMobileMenu(true)}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </MobileSymbol>
+
+            {showMobileMenu && (
+                <HeaderMobile>
+                    <button onClick={() => setShowMobileMenu(false)}>X</button>
+                    <div>{nav()}</div>
+                </HeaderMobile>
+            )}
         </HeaderSection>
     )
 }

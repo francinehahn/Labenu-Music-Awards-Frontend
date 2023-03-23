@@ -6,15 +6,31 @@ export const HomeSection = styled.section `
     min-height: 100vh;
 
     img {
-        display: block;
         width: 100%;
+    }
+
+    #imgDesktop {
+        @media screen and (min-width: 800px) {
+            display: block;
+        }
+        @media screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
+    #imgMobile {
+        @media screen and (min-width: 800px) {
+            display: none;
+        }
+        @media screen and (max-width: 800px) {
+            display: block;
+        }
     }
 
     h2 {
         color: white;
         text-align: center;
         margin: 8vh 0 5vh 0;
-        font-size: 32px;
     }
 
     section {
@@ -23,6 +39,15 @@ export const HomeSection = styled.section `
         gap: 13vw;
         flex-wrap: wrap;
         padding-bottom: 5vh;
+        @media screen and (min-width: 1000px) {
+            margin: 0 5vw;
+        }
+        @media screen and (min-width: 750px) and (max-width: 1000px) {
+            margin: 0 10vw;
+        }
+        @media screen and (max-width: 750px) {
+            margin: 0 15vw;
+        }
 
         .div-home {
             p {
@@ -31,7 +56,6 @@ export const HomeSection = styled.section `
 
             .title-week-day {
                 color: var(--dark-orange);
-                font-size: 23px;
                 padding: 1vh 0;
             }
 
