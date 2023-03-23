@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0 auto 0 auto;
         border: none;
         border-radius: 35px;
-        padding: 1.3vh 3vw;
+        padding: 10px 45px;
         font-size: 18px;
         font-weight: 600;
         color: white;

@@ -4,8 +4,13 @@ import styled from "styled-components"
 export const TicketsSection = styled.section `
     display: flex;
     flex-direction: column;
-    margin: 5vh 4vw 5vh 4vw;
     min-height: 68vh;
+    @media screen and (min-width: 600px) {
+        margin: 5vh 4vw 5vh 4vw;
+    }
+    @media screen and (max-width: 600px) {
+        margin: 5vh 6vw 5vh 6vw;
+    }
 
     #loading {
         margin-top: 30vh;
@@ -19,21 +24,27 @@ export const TicketsSection = styled.section `
 
     .ticket-div {
         display: flex;
-        gap: 2vw;
+        @media screen and (min-width: 700px) {
+            gap: 2vw;
+        }
+        @media screen and (max-width: 700px) {
+            gap: 5vw;
+        }
         margin-bottom: 4vh;
         padding-bottom: 1vh;
         overflow-x: scroll;
 
         ::-webkit-scrollbar {
-            height: 8px;
+            height: 5px;
+            background-color: #434343;
         }
         ::-webkit-scrollbar-track {
-            background: #E2E2E2;
+            background: #434343;
             width: 5px;
             border-radius: 20px;
         }
         ::-webkit-scrollbar-thumb {
-            background-color: #c2c2c2;
+            background-color: #757575;
             border-radius: 20px;
         }
     }
