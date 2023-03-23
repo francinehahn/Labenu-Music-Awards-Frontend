@@ -20,8 +20,22 @@ export const TicketsSection = styled.section `
     .ticket-div {
         display: flex;
         gap: 2vw;
-        flex-wrap: wrap;
         margin-bottom: 4vh;
+        padding-bottom: 1vh;
+        overflow-x: scroll;
+
+        ::-webkit-scrollbar {
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E2E2E2;
+            width: 5px;
+            border-radius: 20px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            border-radius: 20px;
+        }
     }
 
     .error {
