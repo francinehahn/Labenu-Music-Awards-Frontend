@@ -2,11 +2,11 @@ import styled from "styled-components"
 
 
 export const LoadingSection = styled.div `
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
-    border: 5px solid white;
-    border-bottom: 5px solid ${props => props.color === "black"? "#000000" : "#F47C00"};
+    border: 4px solid white;
+    border-bottom: 4px solid ${props => props.color === "black"? "#000000" : "#F47C00"};
     background-color: transparent;
     display: block;
     margin: 0 auto;
