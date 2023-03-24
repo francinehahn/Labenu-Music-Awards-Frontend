@@ -6,7 +6,7 @@ export const ProfileSection = styled.section `
     flex-direction: column;
     align-items: center;
     gap: 5vh;
-    margin: 2vh 0 5vh 0;
+    margin: 2vh 0 7vh 0;
 
     h3 {
         color: white;
@@ -24,7 +24,7 @@ export const ProfileSection = styled.section `
     }
 
     .registrationTitle {
-        margin-top: 10vh;
+        margin-top: 8vh;
     }
 
     form {
