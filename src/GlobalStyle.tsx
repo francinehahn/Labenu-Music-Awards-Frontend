@@ -96,4 +96,13 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 18px;
         }
     }
+
+    h5 {
+        @media screen and (min-width: 1000px) {
+            font-size: 20px;
+        }
+        @media screen and (max-width: 1000px) {
+            font-size: 18px;
+        }
+    }
 `

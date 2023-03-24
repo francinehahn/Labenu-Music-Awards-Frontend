@@ -18,6 +18,13 @@ export const LoginSection = styled.section `
         flex-direction: column;
         gap: 2vh;
         margin-top: 4vh;
+
+        p {
+            color: red;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
         div {
             display: flex;
             flex-direction: column;
