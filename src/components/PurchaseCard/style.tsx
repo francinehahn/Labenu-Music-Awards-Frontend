@@ -8,7 +8,7 @@ export const PurchaseDiv = styled.div `
     border-bottom: 1px solid white;
     width: 50vw;
 
-    h3 {
+    h5 {
         color: white;
     }
 
