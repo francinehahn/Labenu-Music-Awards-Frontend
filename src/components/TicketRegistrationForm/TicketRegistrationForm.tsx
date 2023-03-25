@@ -1,8 +1,20 @@
+import { useState } from "react"
 import { useForm } from "../../hooks/useForm"
+import { useRequestData } from "../../hooks/useRequestData"
 
 export function TicketRegistrationForm () {
     const token = localStorage.getItem("token")
+    const [isLoadingConcerts, dataConcerts] = useRequestData('')
     const [ticketForm, ticketOnChange] = useForm({ticketName: "", ticketsAvailable: "", price: "", concertId: ""})
+    const [isLoadingTicket, setIsLoadingTicket] = useState(false)
+    const [ticketNameError, setTicketNameError] = useState("")
+    const [ticketsAvailableError, setTicketsAvailableError] = useState("")
+    const [priceError, setPriceError] = useState("")
+    const [concertIdError, setConcertIdError] = useState("")
+    const [axiosTicketError, setAxiosTicketError] = useState("")
+    const [successTicketMessage, setSuccessTicketMessage] = useState("")
+
+
     
     return (
         <form>
