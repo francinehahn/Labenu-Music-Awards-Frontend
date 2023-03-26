@@ -20,8 +20,4 @@ export const FormSection = styled.form `
         font-size: 16px;
         text-align: center;
     }
-
-    button {
-        margin-top: -4vh;
-    }
 `

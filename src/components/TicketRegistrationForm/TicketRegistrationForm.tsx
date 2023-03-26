@@ -27,7 +27,7 @@ export function TicketRegistrationForm () {
     const [successTicketMessage, setSuccessTicketMessage] = useState("")
 
     const allConcerts = dataConcerts && dataConcerts.map((item: concert) => {
-        return <option key={item.id} value={item.id}>{item.name}</option>
+        return <option key={item.id} value={item.id}>{item.name} - {item.week_day}</option>
     })
     
     const handleTicketRegistration = (e: any) => {
@@ -36,15 +36,16 @@ export function TicketRegistrationForm () {
         setTicketNameError("")
         setTicketsAvailableError("")
         setPriceError("")
+        console.log(ticketForm)
         
         if (!validateName(ticketForm.ticketName)) {
             setTicketNameError("O nome dos ingressos deve ter pelo menos 2 caracteres.")
         }
         if (Number(ticketForm.ticketsAvailable) < 1000) {
-            setTicketNameError("Você deve disponibilizar pelo menos 1000 ingressos.")
+            setTicketsAvailableError("Você deve disponibilizar pelo menos 1000 ingressos.")
         }
         if (Number(ticketForm.price) < 50) {
-            setTicketNameError("O valor do ingresso não pode ser menos do que R$50,00.")
+            setPriceError("O valor do ingresso não pode ser menos do que R$50,00.")
         }
 
         if (validateName(ticketForm.ticketName) && Number(ticketForm.ticketsAvailable) >= 1000 && Number(ticketForm.price) >= 50){
@@ -87,7 +88,7 @@ export function TicketRegistrationForm () {
 
             <div>
                 <label htmlFor="concertId">Show</label>
-                <select>
+                <select value={ticketForm.concertId} name="concertId" onChange={ticketOnChange}>
                     <option>Selecione</option>
                     {isLoadingConcerts && <option>Carregando...</option>}
                     {!isLoadingConcerts && dataConcerts && allConcerts}
