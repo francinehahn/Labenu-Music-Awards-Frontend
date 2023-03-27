@@ -44,8 +44,6 @@ export function Home () {
                 <img id="imgDesktop" src={imgdesktop} alt="Imagem de um show"/>
                 <img id="imgMobile" src={imgMobile} alt="Imagem de um show"/>
 
-                <h2>Atrações confirmadas:</h2>
-
                 <section>
                     <div className="div-home">
                         <h3 className="title-week-day">Sexta-feira</h3>

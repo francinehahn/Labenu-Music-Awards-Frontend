@@ -38,7 +38,8 @@ export const HomeSection = styled.section `
         justify-content: center;
         gap: 13vw;
         flex-wrap: wrap;
-        padding-bottom: 5vh;
+        padding: 10vh 0 5vh 0;
+
         @media screen and (min-width: 1000px) {
             margin: 0 5vw;
         }

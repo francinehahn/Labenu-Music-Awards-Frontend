@@ -25,6 +25,13 @@ export const CartSection = styled.section `
         font-weight: 500;
         text-align: center;
     }
+
+    #empty-cart {
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        padding: 34vh 0;
+    }
 `
 
 export const ButtonDiv = styled.div `

@@ -78,12 +78,13 @@ export function Cart () {
             <Header reload={reload}/>
 
             <CartSection>
+                {(productsInCart === null || JSON.parse(productsInCart).length === 0) && <p id="empty-cart">Carrinho vazio.</p>}
                 {renderData}
                 {totalPrice > 0 && <p id="totalPrice">Valor total: R${totalPrice.toFixed(2).toString().replace(".", ",")}</p>}
             </CartSection>
 
             <ButtonDiv>
-                <button id="button" onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>
+                {productsInCart !== null && JSON.parse(productsInCart).length > 0 && <button id="button" onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>}
             </ButtonDiv>
 
             <Footer/>
