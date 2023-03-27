@@ -55,6 +55,7 @@ export const TicketsSection = styled.section `
     .ticket-div {
         display: flex;
         overflow-x: auto;
+        scroll-behavior: smooth;
         ::-webkit-scrollbar {
             display: none;
         }

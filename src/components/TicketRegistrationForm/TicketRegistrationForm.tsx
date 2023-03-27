@@ -27,7 +27,7 @@ export function TicketRegistrationForm () {
     const [successTicketMessage, setSuccessTicketMessage] = useState("")
 
     const allConcerts = dataConcerts && dataConcerts.map((item: concert) => {
-        return <option key={item.id} value={item.id}>{item.name} - {item.week_day}</option>
+        return <option key={item.id} value={item.id}>{item.name} - {item.week_day} - {item.start_time}-{item.end_time}</option>
     })
     
     const handleTicketRegistration = (e: any) => {
