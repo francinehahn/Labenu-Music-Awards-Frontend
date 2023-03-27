@@ -10,6 +10,21 @@ export const GlobalStyle = createGlobalStyle`
         background-color: black;
     }
 
+    body {
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #434343;
+        }
+        ::-webkit-scrollbar-track {
+            background: #434343;
+            border-radius: 20px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #757575;
+            border-radius: 20px;
+        }
+    }
+
     :root {
         --dark-orange: #F47C00;
         --light-orange: #ffa071;

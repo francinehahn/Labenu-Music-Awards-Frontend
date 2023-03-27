@@ -4,11 +4,13 @@ import styled from "styled-components"
 export const TicketsSection = styled.section `
     display: flex;
     flex-direction: column;
+    gap: 5vh;
     min-height: 68vh;
-    @media screen and (min-width: 600px) {
-        margin: 5vh 4vw 5vh 4vw;
+
+    @media screen and (min-width: 900px) {
+        margin: 5vh 1vw 5vh 1vw;
     }
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 900px) {
         margin: 5vh 6vw 5vh 6vw;
     }
 
@@ -22,30 +24,39 @@ export const TicketsSection = styled.section `
         color: var(--dark-orange);
     }
 
+    .ticket-div-wrapper {
+        display: flex;
+        gap: .5vw;
+
+        .buttonScroll {
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+
+            @media screen and (min-width: 900px) {
+                border-radius: 5px;
+                padding: 20px;
+                background: linear-gradient(90deg, #4d4d4d, #434343, #252525);
+                opacity: .3;
+                :hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
     .ticket-div {
         display: flex;
+        overflow-x: auto;
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
         @media screen and (min-width: 700px) {
-            gap: 2vw;
+            gap: 1vw;
         }
         @media screen and (max-width: 700px) {
             gap: 5vw;
-        }
-        margin-bottom: 4vh;
-        padding-bottom: 1vh;
-        overflow-x: scroll;
-
-        ::-webkit-scrollbar {
-            height: 5px;
-            background-color: #434343;
-        }
-        ::-webkit-scrollbar-track {
-            background: #434343;
-            width: 5px;
-            border-radius: 20px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #757575;
-            border-radius: 20px;
         }
     }
 

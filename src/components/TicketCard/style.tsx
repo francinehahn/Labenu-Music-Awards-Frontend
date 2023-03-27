@@ -4,8 +4,9 @@ export const TicketSection = styled.div `
     display: flex;
     flex-direction: column;
     padding: 20px 20px 40px 20px;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 5px;
+    
     @media screen and (min-width: 800px) {
         min-width: 270px; 
         max-width: 280px;    

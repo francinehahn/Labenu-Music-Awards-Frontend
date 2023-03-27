@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
@@ -28,6 +28,9 @@ export function Tickets () {
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=friday")
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=saturday")
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=sunday")
+    const carouselFriday = useRef<any>(null)
+    const carouselSaturday = useRef<any>(null)
+    const carouselSunday = useRef<any>(null)
 
     useEffect(() => {
         productsInCart = localStorage.getItem("products")
@@ -81,19 +84,61 @@ export function Tickets () {
                 />
     })
 
+    const handleLeftClickFri = () => {
+        carouselFriday.current.scrollLeft -= carouselFriday.current.offsetWidth
+    }
+
+    const handleRightClickFri = () => {
+        carouselFriday.current.scrollLeft += carouselFriday.current.offsetWidth
+    }
+
+    const handleLeftClickSat = () => {
+        carouselSaturday.current.scrollLeft -= carouselSaturday.current.offsetWidth
+    }
+
+    const handleRightClickSat = () => {
+        carouselSaturday.current.scrollLeft += carouselSaturday.current.offsetWidth
+    }
+
+    const handleLeftClickSun = () => {
+        carouselSunday.current.scrollLeft -= carouselSunday.current.offsetWidth
+    }
+
+    const handleRightClickSun = () => {
+        carouselSunday.current.scrollLeft += carouselSunday.current.offsetWidth
+    }
+
     return (
         <>
             <Header/>
 
             <TicketsSection>
                 {(isLoadingFriday && isLoadingSaturday && isLoadingSunday) && <div id="loading"><Loading color="black"/></div>}
-                {!isLoadingFriday && dataFriday && <div className="ticket-div">{renderdataFriday}</div>}
+                {!isLoadingFriday && dataFriday && (
+                    <div className="ticket-div-wrapper">
+                        <button className="buttonScroll" onClick={handleLeftClickFri}>-</button>
+                        <div className="ticket-div" ref={carouselFriday}>{renderdataFriday}</div>
+                        <button className="buttonScroll" onClick={handleRightClickFri}>+</button>
+                    </div>
+                )}
                 {!isLoadingFriday && !dataFriday && errorFriday && <p className="error">{errorFriday}</p>}
 
-                {!isLoadingSaturday && dataSaturday && <div className="ticket-div">{renderdataSaturday}</div>}
+                {!isLoadingSaturday && dataSaturday && (
+                    <div className="ticket-div-wrapper">
+                        <button className="buttonScroll" onClick={handleLeftClickSat}>-</button>
+                        <div className="ticket-div" ref={carouselSaturday}>{renderdataSaturday}</div>
+                        <button className="buttonScroll" onClick={handleRightClickSat}>+</button>
+                    </div>
+                )}
                 {!isLoadingSaturday && !dataSaturday && errorSaturday && <p className="error">{errorSaturday}</p>}
 
-                {!isLoadingSunday && dataSunday && <div className="ticket-div">{renderdataSunday}</div>}
+                {!isLoadingSunday && dataSunday && (
+                    <div className="ticket-div-wrapper">
+                        <button className="buttonScroll" onClick={handleLeftClickSun}>-</button>
+                        <div className="ticket-div" ref={carouselSunday}>{renderdataSunday}</div>
+                        <button className="buttonScroll" onClick={handleRightClickSun}>+</button>
+                    </div>
+                )}
                 {!isLoadingSunday && !dataSunday && errorSunday && <p className="error">{errorSunday}</p>}
             </TicketsSection>
 

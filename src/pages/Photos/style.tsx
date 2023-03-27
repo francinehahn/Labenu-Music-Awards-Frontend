@@ -8,7 +8,7 @@ export const PhotoSection = styled.section `
     min-height: 68vh;
 
     span {
-        margin-top: 25vh;
+        margin-top: 32vh;
     }
 
     button {
