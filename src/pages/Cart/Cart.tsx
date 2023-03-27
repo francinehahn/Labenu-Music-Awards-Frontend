@@ -27,22 +27,20 @@ export function Cart () {
     }, [reload])
     
     const handlePayment = () => {
-        if (!productsInCart || productsInCart.length === 0) {
-            return
-        } else if (token === null) {
+        if (token === null) {
             navigate("/login")
         } else {
             setIsLoading(true)
-            let body
             
-            for (let ticket of JSON.parse(productsInCart)) {
-                body = {
+            let body = []
+            for (let ticket of JSON.parse(productsInCart || "")) {
+                body.push({
                     ticketId: ticket.id,
                     units: ticket.units
-                }
+                })
             }
 
-            axios.post('https://lama-fctv.onrender.com/tickets/purchase', body, {
+            axios.post('https://lama-fctv.onrender.com/tickets/purchase', {tickets: body}, {
                 headers: {
                     Authorization: token
                 }

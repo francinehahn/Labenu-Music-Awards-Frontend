@@ -4,11 +4,11 @@ import styled from "styled-components"
 export const TicketsSection = styled.section `
     display: flex;
     flex-direction: column;
-    gap: 7vh;
+    gap: 15vh;
     min-height: 68vh;
 
     @media screen and (min-width: 900px) {
-        margin: 7vh 1vw 7vh 1vw;
+        margin: 15vh 1vw;
     }
     @media screen and (max-width: 900px) {
         margin: 5vh 6vw 5vh 6vw;

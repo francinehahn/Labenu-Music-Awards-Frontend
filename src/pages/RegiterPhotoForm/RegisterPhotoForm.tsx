@@ -13,9 +13,9 @@ export function RegisterPhotoForm () {
     useProtectedPage()
 
     const token = localStorage.getItem("token")
-    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', token)
+    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', true, token)
     const [isLoadingPhoto, setIsLoadingPhoto] = useState(false)
-    const [photoForm, onChangePhoto] = useForm({photoUrl: "", weekDay: ""})
+    const [photoForm, onChangePhoto, clearInputs] = useForm({photoUrl: "", weekDay: ""})
     const [photoError, setPhotoError] = useState("")
     const [axiosPhotoError, setAxiosPhotoError] = useState("")
     const [successPhotoMessage, setSuccessPhotoMessage] = useState("")
@@ -39,6 +39,7 @@ export function RegisterPhotoForm () {
             }).then(() => {
                 setIsLoadingPhoto(false)
                 setSuccessPhotoMessage("Foto postada com sucesso!")
+                clearInputs()
             }).catch(error => {
                 setIsLoadingPhoto(false)
                 setAxiosPhotoError(error.response.data)

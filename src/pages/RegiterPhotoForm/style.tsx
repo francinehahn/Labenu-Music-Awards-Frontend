@@ -28,10 +28,6 @@ export const PhotoForm = styled.form `
         }
     }
 
-    button {
-        margin-top: 2vh;
-    }
-
     #error {
         font-size: 16px;
         color: red;
