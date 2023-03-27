@@ -32,7 +32,7 @@ export function Signup () {
         setSuccessMessage("")
 
         if (!validateUserName(form.name)) {
-            setErrorName("Forneça seu nome completo.")
+            setErrorName("Forneça seu nome completo sem o uso de acentuação.")
         }
         if (!validateEmail(form.email)) {
             setErrorEmail("Email inválido.")
@@ -60,6 +60,7 @@ export function Signup () {
             .then(response => {
                 localStorage.setItem("token", response.data.token)
                 setSuccessMessage("Conta criada com sucesso!")
+                clearInputs()
                 setIsLoading(false)
             })
             .catch(error => {

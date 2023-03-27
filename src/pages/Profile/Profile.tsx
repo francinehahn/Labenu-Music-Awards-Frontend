@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useState } from "react"
 import { BandRegistrationForm } from "../../components/BandRegistrationForm/BandRegistrationForm"
 import { ConcertRegistrationForm } from "../../components/ConcertRegistrationForm/ConcertRegistrationForm"
@@ -22,9 +21,9 @@ export function Profile () {
     useProtectedPage()
 
     const token = localStorage.getItem("token")
-    const [isLoadingPurchases, dataPurchases, errorPurchases] = useRequestData('https://lama-fctv.onrender.com/tickets/purchases', token)
-    const [isLoadingUser, dataUser, errorUser] = useRequestData('https://lama-fctv.onrender.com/users/account', token)
-    
+    const [reload, setReload] = useState(false)
+    const [isLoadingPurchases, dataPurchases, errorPurchases] = useRequestData('https://lama-fctv.onrender.com/tickets/purchases', reload, token)
+    const [isLoadingUser, dataUser, errorUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
 
     const renderDataPurchases = dataPurchases && dataPurchases.map((item: purchase, index: number) => {
         return <PurchaseCard
@@ -53,13 +52,13 @@ export function Profile () {
                 {!isLoadingUser && dataUser && dataUser.role === "ADMIN" && (
                     <>
                         <h3 className="registrationTitle">Registrar nova banda</h3>
-                        <BandRegistrationForm/>
+                        <BandRegistrationForm reload={reload} setReload={setReload}/>
 
                         <h3 className="registrationTitle">Registrar novo show</h3>
-                        <ConcertRegistrationForm/>
+                        <ConcertRegistrationForm reload={reload} setReload={setReload}/>
 
                         <h3 className="registrationTitle">Registrar novo ingresso</h3>
-                        <TicketRegistrationForm/> 
+                        <TicketRegistrationForm reload={reload} setReload={setReload}/> 
                     </>
                 )}
             </ProfileSection>

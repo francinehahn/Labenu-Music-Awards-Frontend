@@ -15,10 +15,15 @@ interface concert {
     music_genre: "Calypso"
 }
 
-export function TicketRegistrationForm () {
+interface ticketProps {
+    reload: boolean,
+    setReload: any
+}
+
+export function TicketRegistrationForm (props: ticketProps) {
     const token = localStorage.getItem("token")
-    const [isLoadingConcerts, dataConcerts] = useRequestData('https://lama-fctv.onrender.com/concerts')
-    const [ticketForm, ticketOnChange] = useForm({ticketName: "", ticketsAvailable: "", price: "", concertId: ""})
+    const [isLoadingConcerts, dataConcerts] = useRequestData('https://lama-fctv.onrender.com/concerts', props.reload)
+    const [ticketForm, ticketOnChange, clearInputs] = useForm({ticketName: "", ticketsAvailable: "", price: "", concertId: ""})
     const [isLoadingTicket, setIsLoadingTicket] = useState(false)
     const [ticketNameError, setTicketNameError] = useState("")
     const [ticketsAvailableError, setTicketsAvailableError] = useState("")
@@ -56,6 +61,8 @@ export function TicketRegistrationForm () {
             }).then(() => {
                 setIsLoadingTicket(false)
                 setSuccessTicketMessage("Ingresso cadastrado com sucesso!")
+                clearInputs()
+                props.setReload(!props.reload)
             }).catch(error => {
                 setIsLoadingTicket(false)
                 setAxiosTicketError(error.response.data)

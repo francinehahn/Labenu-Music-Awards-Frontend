@@ -5,11 +5,15 @@ import { useForm } from "../../hooks/useForm"
 import { Loading } from "../Loading/Loading"
 import { FormSection } from "./style"
 
+interface bandProps {
+    reload: boolean,
+    setReload: any
+}
 
-export function BandRegistrationForm () {
+export function BandRegistrationForm (props: bandProps) {
     const token = localStorage.getItem("token")
-    const [bandForm, bandOnChange] = useForm({bandName: "", musicGenre: "", responsible: ""})
-    const [isLoading, setIsLoading] = useState(false)
+    const [bandForm, bandOnChange, clearInputs] = useForm({name: "", musicGenre: "", responsible: ""})
+    const [isLoadingBand, setIsLoadingBand] = useState(false)
     const [nameError, setNameError] = useState("")
     const [musicGenreError, setMusicGenreError] = useState("")
     const [responsibleError, setResponsibleError] = useState("")
@@ -18,37 +22,39 @@ export function BandRegistrationForm () {
 
     const handleBandRegistration = (e: any) => {
         e.preventDefault()
-        setIsLoading(true)
+        setIsLoadingBand(true)
         setNameError("")
         setMusicGenreError("")
         setResponsibleError("")
         setAxiosError("")
         
-        if (!validateBandName(bandForm.bandName)) {
+        if (!validateBandName(bandForm.name)) {
             setNameError("O nome da banda deve ter pelo menos 3 caracteres.")
         }
         if (!validateBandName(bandForm.musicGenre)) {
             setMusicGenreError("O gênero musical deve ter pelo menos 3 caracteres.")
         }
         if (!validateUserName(bandForm.responsible)) {
-            setResponsibleError("Informe o nome completo do responsável.")
+            setResponsibleError("Informe o nome completo do responsável sem o uso de acentuação.")
         }
 
-        if (validateBandName(bandForm.bandName) && validateBandName(bandForm.musicGenre) && validateUserName(bandForm.responsible)) {
+        if (validateBandName(bandForm.name) && validateBandName(bandForm.musicGenre) && validateUserName(bandForm.responsible)) {
             axios.post('https://lama-fctv.onrender.com/bands/create', bandForm, {
                 headers: {
                     Authorization: token
                 }
                 }).then(() => {
-                    setIsLoading(false)
+                    setIsLoadingBand(false)
                     setSuccessMessage("Banda registrada com sucesso!")
+                    props.setReload(!props.reload)
+                    clearInputs()
                 }).catch(error => {
-                    setIsLoading(false)
+                    setIsLoadingBand(false)
                     setAxiosError(error.response.data)
             })
         }
 
-        setIsLoading(false)
+        setIsLoadingBand(false)
         return
     }
 
@@ -75,7 +81,7 @@ export function BandRegistrationForm () {
             <p id="error">{axiosError}</p>
             <p id="successMessage">{successMessage}</p>
 
-            <button>{isLoading? <Loading color="orange"/> : 'Registrar banda'}</button>
+            <button>{isLoadingBand? <Loading color="orange"/> : 'Registrar banda'}</button>
         </FormSection>
     )
 }

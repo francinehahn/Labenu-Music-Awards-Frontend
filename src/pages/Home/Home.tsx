@@ -18,9 +18,9 @@ interface concert {
 }
 
 export function Home () {
-    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=friday")
-    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=saturday")
-    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=sunday")
+    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=friday", true)
+    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=saturday", true)
+    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=sunday", true)
 
     const navigate = useNavigate()
 

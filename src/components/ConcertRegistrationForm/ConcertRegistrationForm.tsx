@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Loading } from "../Loading/Loading"
@@ -12,10 +12,15 @@ interface band {
     responsible: string
 }
 
-export function ConcertRegistrationForm () {
+interface concertProps {
+    reload: boolean,
+    setReload: any
+}
+
+export function ConcertRegistrationForm (props: concertProps) {
     const token = localStorage.getItem("token")
-    const [isLoadingBands, data] = useRequestData('https://lama-fctv.onrender.com/bands')
-    const [formConcert, onChangeConcert] = useForm({weekDay: "", startTime: "", endTime: "", bandId: ""})
+    const [isLoadingBands, data] = useRequestData('https://lama-fctv.onrender.com/bands', props.reload)
+    const [formConcert, onChangeConcert, clearInputs] = useForm({weekDay: "", startTime: "", endTime: "", bandId: ""})
     const [isLoadingConcert, setIsLoadingConcert] = useState(false)
     const [startTimeError, setStartTimeError] = useState("")
     const [endTimeError, setEndTimeError] = useState("")
@@ -44,6 +49,8 @@ export function ConcertRegistrationForm () {
             }).then(() => {
                 setIsLoadingConcert(false)
                 setSuccessMessageConcert("Show cadastrado com sucesso!")
+                props.setReload(!props.reload)
+                clearInputs()
             })
             .catch(error => {
                 setIsLoadingConcert(false)

@@ -17,11 +17,11 @@ interface data {
 
 export function Photos () {
     const token = localStorage.getItem("token")
-    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=friday")
-    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=saturday")
-    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=sunday")
-    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', token)
     const [reload, setReload] = useState(false)
+    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=friday", reload)
+    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=saturday", reload)
+    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=sunday", reload)
+    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
 
     const navigate = useNavigate()
 
