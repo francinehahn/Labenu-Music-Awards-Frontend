@@ -3,7 +3,9 @@ import styled from "styled-components"
 export const TicketSection = styled.div `
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 40px 20px;
+    justify-content: space-between;
+    gap: 2vh;
+    padding: 20px 20px 30px 20px;
     background-color: #ffffff;
     border-radius: 5px;
     
@@ -16,31 +18,37 @@ export const TicketSection = styled.div `
         max-width: 300px;    
     }
 
-    img {
-        width: 100%;
-        border-radius: 5px 5px 0 0;
-    }
-
-    h3 {
-        color: black;
+    div {
         background-color: white;
-        margin: 2vh 0 1vh 0;
-    }
 
-    p {
-        font-size: 16px;
-        color: black;
-        background-color: white;
-    }
+        img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
 
-    #price {
-        font-size: 24px;
-        font-weight: 600;
-        color: green;
-        background-color: white;
+        h4 {
+            color: black;
+            background-color: white;
+            padding: 1vh 0;
+            line-height: 4vh;
+        }
+
+        p {
+            font-size: 16px;
+            color: black;
+            background-color: white;
+        }
+
+        #price {
+            font-size: 24px;
+            font-weight: 600;
+            color: green;
+            background-color: white;
+            padding: .5vh 0;
+        }
     }
 
     button {
-        margin-top: 2.5vh;
+        margin-bottom: 1vh;
     }
 `

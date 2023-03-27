@@ -4,11 +4,11 @@ import styled from "styled-components"
 export const TicketsSection = styled.section `
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 7vh;
     min-height: 68vh;
 
     @media screen and (min-width: 900px) {
-        margin: 5vh 1vw 5vh 1vw;
+        margin: 7vh 1vw 7vh 1vw;
     }
     @media screen and (max-width: 900px) {
         margin: 5vh 6vw 5vh 6vw;
@@ -35,11 +35,18 @@ export const TicketsSection = styled.section `
 
             @media screen and (min-width: 900px) {
                 border-radius: 5px;
-                padding: 20px;
-                background: linear-gradient(90deg, #4d4d4d, #434343, #252525);
-                opacity: .3;
+                padding: 10px;
+                background: linear-gradient(90deg, #333333, #202020, #000000);
+                opacity: .2;
+
                 :hover {
-                    opacity: 1;
+                    opacity: .8;
+                }
+
+                svg {
+                    height: 35px;
+                    width: 35px;
+                    background-color: transparent;
                 }
             }
         }

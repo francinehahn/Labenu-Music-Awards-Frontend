@@ -26,7 +26,7 @@ export function Photos () {
     const navigate = useNavigate()
 
     const handlePhotoDeletion = (id: string) => {
-        if (dataUser && dataUser.role !== "ADMIN") {
+        if (!dataUser || (dataUser && dataUser.role !== "ADMIN")) {
             return
         } else {
             const deletePhotoConfirmation = confirm("Você gostaria de deletar essa foto?")
