@@ -14,7 +14,7 @@ interface band {
 
 export function ConcertRegistrationForm () {
     const token = localStorage.getItem("token")
-    const [isLoadingBands, data, error] = useRequestData('https://lama-fctv.onrender.com/bands')
+    const [isLoadingBands, data] = useRequestData('https://lama-fctv.onrender.com/bands')
     const [formConcert, onChangeConcert] = useForm({weekDay: "", startTime: "", endTime: "", bandId: ""})
     const [isLoadingConcert, setIsLoadingConcert] = useState(false)
     const [startTimeError, setStartTimeError] = useState("")
@@ -28,7 +28,6 @@ export function ConcertRegistrationForm () {
         setStartTimeError("")
         setEndTimeError("")
         setAxiosErrorConcert("")
-        console.log(formConcert)
         
         if (formConcert.startTime.length < 8) {
             setStartTimeError("O formato do horário deve ser 00:00:00, sem haver minutos e segundos.")

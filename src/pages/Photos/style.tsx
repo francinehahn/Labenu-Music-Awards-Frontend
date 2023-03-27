@@ -7,10 +7,13 @@ export const PhotoSection = styled.section `
     margin: 0 4vw 5vh 4vw;
     min-height: 68vh;
 
-    h2 {
-        font-size: 24px;
-        color: white;
-        margin: 5vh 0 1vh 0;
+    span {
+        margin-top: 25vh;
+    }
+
+    button {
+        margin-left: 78vw;
+        margin-top: 5vh;
     }
 
     p {
@@ -18,14 +21,25 @@ export const PhotoSection = styled.section `
         color: white;
     }
 
+    h2 {
+        font-size: 24px;
+        color: white;
+        margin: 5vh 0 1vh 0;
+    }
+
     div {
         display: flex;
         gap: 1vw;
         flex-wrap: wrap;
-
+        margin-bottom: 3vh;
+        
         img {
             width: 20vw;
             height: 27vh;
+            :hover {
+                cursor: pointer;
+                opacity: .7;
+            }
         }
     }
 `

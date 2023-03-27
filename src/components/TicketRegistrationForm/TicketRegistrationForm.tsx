@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { validateName } from "../../constants/constants"
+import { validateTicketName } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Loading } from "../Loading/Loading"
@@ -36,10 +36,10 @@ export function TicketRegistrationForm () {
         setTicketNameError("")
         setTicketsAvailableError("")
         setPriceError("")
-        console.log(ticketForm)
+        setAxiosTicketError("")
         
-        if (!validateName(ticketForm.ticketName)) {
-            setTicketNameError("O nome dos ingressos deve ter pelo menos 2 caracteres.")
+        if (!validateTicketName(ticketForm.ticketName)) {
+            setTicketNameError("O nome dos ingressos deve ter pelo menos 8 caracteres.")
         }
         if (Number(ticketForm.ticketsAvailable) < 1000) {
             setTicketsAvailableError("Você deve disponibilizar pelo menos 1000 ingressos.")
@@ -48,7 +48,7 @@ export function TicketRegistrationForm () {
             setPriceError("O valor do ingresso não pode ser menos do que R$50,00.")
         }
 
-        if (validateName(ticketForm.ticketName) && Number(ticketForm.ticketsAvailable) >= 1000 && Number(ticketForm.price) >= 50){
+        if (validateTicketName(ticketForm.ticketName) && Number(ticketForm.ticketsAvailable) >= 1000 && Number(ticketForm.price) >= 50){
             axios.post('https://lama-fctv.onrender.com/tickets/create', ticketForm, {
                 headers: {
                     Authorization: token

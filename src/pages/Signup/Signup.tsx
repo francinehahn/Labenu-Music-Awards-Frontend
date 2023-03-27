@@ -3,7 +3,7 @@ import { useState } from "react"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
-import { validateEmail, validateName, validatePassword } from "../../constants/constants"
+import { validateEmail, validateUserName, validatePassword } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { PasswordInput, SignupSection } from "./style"
 
@@ -31,7 +31,7 @@ export function Signup () {
         setAxiosError("")
         setSuccessMessage("")
 
-        if (!validateName(form.name)) {
+        if (!validateUserName(form.name)) {
             setErrorName("Forneça seu nome completo.")
             setIsLoading(false)
         }
@@ -56,7 +56,7 @@ export function Signup () {
             setIsLoading(false)
         }
 
-        if (validateName(form.name) && validateEmail(form.email) && validatePassword(form.password) && form.password === form.confirmPassword && form.role !== "") {
+        if (validateUserName(form.name) && validateEmail(form.email) && validatePassword(form.password) && form.password === form.confirmPassword && form.role !== "") {
             const body = {
                 name: form.name,
                 email: form.email,

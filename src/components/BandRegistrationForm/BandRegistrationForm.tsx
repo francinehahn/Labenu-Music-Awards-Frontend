@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { validateName } from "../../constants/constants"
+import { validateBandName, validateUserName } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { Loading } from "../Loading/Loading"
 import { FormSection } from "./style"
@@ -8,7 +8,7 @@ import { FormSection } from "./style"
 
 export function BandRegistrationForm () {
     const token = localStorage.getItem("token")
-    const [form, onChange] = useForm({bandName: "", musicGenre: "", responsible: ""})
+    const [bandForm, bandOnChange] = useForm({bandName: "", musicGenre: "", responsible: ""})
     const [isLoading, setIsLoading] = useState(false)
     const [nameError, setNameError] = useState("")
     const [musicGenreError, setMusicGenreError] = useState("")
@@ -22,22 +22,20 @@ export function BandRegistrationForm () {
         setNameError("")
         setMusicGenreError("")
         setResponsibleError("")
+        setAxiosError("")
         
-        if (form.bandName.length < 3) {
-            setNameError("O nome da banda deve ter pelo menos 2 caracteres.")
-            setIsLoading(false)
+        if (!validateBandName(bandForm.bandName)) {
+            setNameError("O nome da banda deve ter pelo menos 3 caracteres.")
         }
-        if (!validateName(form.musicGenre)) {
-            setMusicGenreError("O gênero musical deve ter pelo menos 2 caracteres.")
-            setIsLoading(false)
+        if (!validateBandName(bandForm.musicGenre)) {
+            setMusicGenreError("O gênero musical deve ter pelo menos 3 caracteres.")
         }
-        if (!validateName(form.responsible)) {
-            setResponsibleError("O nome do responsável pela banda deve ter pelo menos 2 caracteres.")
-            setIsLoading(false)
+        if (!validateUserName(bandForm.responsible)) {
+            setResponsibleError("Informe o nome completo do responsável.")
         }
 
-        if (form.bandName.length >= 3 && validateName(form.musicGenre) && validateName(form.responsible)) {
-            axios.post('https://lama-fctv.onrender.com/bands/create', form, {
+        if (validateBandName(bandForm.bandName) && validateBandName(bandForm.musicGenre) && validateUserName(bandForm.responsible)) {
+            axios.post('https://lama-fctv.onrender.com/bands/create', bandForm, {
                 headers: {
                     Authorization: token
                 }
@@ -50,6 +48,7 @@ export function BandRegistrationForm () {
             })
         }
 
+        setIsLoading(false)
         return
     }
 
@@ -57,19 +56,19 @@ export function BandRegistrationForm () {
         <FormSection onSubmit={handleBandRegistration}>
             <div>
                 <label htmlFor="name">Nome da banda</label>
-                <input type={'text'} placeholder="Capital Inicial" name="name" value={form.name} onChange={onChange}/>
+                <input type={'text'} placeholder="Capital Inicial" name="name" value={bandForm.name} onChange={bandOnChange}/>
                 <p>{nameError}</p>
             </div>
 
             <div>
                 <label htmlFor="musicGenre">Gênero musical</label>
-                <input type={'text'} placeholder="Rock" name="musicGenre" value={form.musicGenre} onChange={onChange}/>
+                <input type={'text'} placeholder="Rock" name="musicGenre" value={bandForm.musicGenre} onChange={bandOnChange}/>
                 <p>{musicGenreError}</p>
             </div>
 
             <div>
                 <label htmlFor="responsible">Responsável pela banda</label>
-                <input type={'text'} placeholder="João Soares" name="responsible" value={form.responsible} onChange={onChange}/>
+                <input type={'text'} placeholder="João Soares" name="responsible" value={bandForm.responsible} onChange={bandOnChange}/>
                 <p>{responsibleError}</p>
             </div>
 
