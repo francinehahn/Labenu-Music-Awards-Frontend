@@ -5,6 +5,7 @@ import { Login } from "../pages/Login/Login"
 import { PhotoRegistration } from "../pages/PhotoRegistration/PhotoRegistration"
 import { Photos } from "../pages/Photos/Photos"
 import { Profile } from "../pages/Profile/Profile"
+import { RegisterPhotoForm } from "../pages/RegiterPhotoForm/RegisterPhotoForm"
 import { Signup } from "../pages/Signup/Signup"
 import { Tickets } from "../pages/Tickets/Tickets"
 
@@ -21,6 +22,7 @@ export function Router() {
                 <Route path="/carrinho" element={<Cart/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/signup" element={<Signup/>}/>
+                <Route path="/cadastrar-foto" element={<RegisterPhotoForm/>}/>
             </Routes>        
         </BrowserRouter>
     )

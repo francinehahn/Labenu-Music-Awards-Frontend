@@ -1,3 +1,6 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
@@ -13,20 +16,45 @@ interface data {
 }
 
 export function Photos () {
+    const token = localStorage.getItem("token")
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=friday")
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=saturday")
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=sunday")
+    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', token)
+    const [reload, setReload] = useState(false)
+
+    const navigate = useNavigate()
+
+    const handlePhotoDeletion = (id: string) => {
+        if (dataUser && dataUser.role !== "ADMIN") {
+            return
+        } else {
+            const deletePhotoConfirmation = confirm("Você gostaria de deletar essa foto?")
+            
+            if (deletePhotoConfirmation) {
+                axios.delete(`https://lama-fctv.onrender.com/photos/${id}`, {
+                    headers: {
+                        Authorization: token
+                    }
+                })
+                .then(() => {
+                    alert("Foto deletada com sucesso!")
+                    setReload(!reload)
+                }).catch(error => alert(error.response.data))
+            }
+        }
+    }
 
     const renderDataFriday = dataFriday && dataFriday.map((item: data) => {
-        return <img key={item.id} src={item.photo_url} alt="Foto do festival na sexta-feira"/>
+        return <img key={item.id} src={item.photo_url} alt="Foto do festival na sexta-feira" onClick={() => handlePhotoDeletion(item.id)}/>
     })
 
     const renderDataSaturday = dataSaturday && dataSaturday.map((item: data) => {
-        return <img key={item.id} src={item.photo_url} alt="Foto do festival no sábado"/>
+        return <img key={item.id} src={item.photo_url} alt="Foto do festival no sábado" onClick={() => handlePhotoDeletion(item.id)}/>
     })
 
     const renderDataSunday = dataSunday && dataSunday.map((item: data) => {
-        return <img key={item.id} src={item.photo_url} alt="Foto do festival na sexta-feira"/>
+        return <img key={item.id} src={item.photo_url} alt="Foto do festival na sexta-feira" onClick={() => handlePhotoDeletion(item.id)}/>
     })
 
     return (
@@ -34,19 +62,31 @@ export function Photos () {
             <Header/>
             
             <PhotoSection>
-                <h2>Sexta-feira</h2>
-                {isLoadingFriday && <Loading color="black"/>}
-                {!isLoadingFriday && dataFriday && <div>{renderDataFriday}</div>}
+                {!isLoadingUser && dataUser && dataUser.role === "ADMIN" && <button onClick={() => navigate("/cadastrar-foto")}>Postar foto</button>}
+                {(isLoadingFriday || isLoadingSaturday || isLoadingSunday) && <span> <Loading color="black"/> </span>}
+                
+                {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataFriday && (
+                    <>
+                        <h2>Sexta-feira</h2>
+                        <div>{renderDataFriday}</div>
+                    </>
+                )}
                 {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
 
-                <h2>Sábado</h2>
-                {isLoadingSaturday && <Loading color="black"/>}
-                {!isLoadingSaturday && dataSaturday && <div>{renderDataSaturday}</div>}
+                {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataSaturday && (
+                    <>
+                        <h2>Sábado</h2>
+                        <div>{renderDataSaturday}</div>
+                    </>
+                )}
                 {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
 
-                <h2>Domingo</h2>
-                {isLoadingSunday && <Loading color="black"/>}
-                {!isLoadingSunday && dataSunday && <div>{renderDataSunday}</div>}
+                {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataSunday && (
+                    <>
+                        <h2>Domingo</h2>
+                        <div>{renderDataSunday}</div>
+                    </>
+                )}
                 {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
             </PhotoSection>
             
