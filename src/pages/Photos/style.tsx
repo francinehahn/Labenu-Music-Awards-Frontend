@@ -7,6 +7,10 @@ export const PhotoSection = styled.section `
     margin: 0 4vw 5vh 4vw;
     min-height: 68vh;
 
+    @media screen and (max-width: 800px) {
+        align-items: center;    
+    }
+
     span {
         margin-top: 32vh;
     }
@@ -33,9 +37,14 @@ export const PhotoSection = styled.section `
         flex-wrap: wrap;
         margin-bottom: 3vh;
         
+        @media screen and (max-width: 800px) {
+            justify-content: center;
+            gap: 2vw; 
+        }
+
         img {
-            width: 20vw;
-            height: 27vh;
+            width: 300px;
+            height: 200px;
             :hover {
                 cursor: pointer;
                 opacity: .7;

@@ -39,14 +39,15 @@ export const GlobalStyle = createGlobalStyle`
 
     input, select {
         background-color: white;
-        width: 25vw;
         font-size: 16px;
         color: black;
         padding: .7vh .5vw;
         border: none;
+
         :focus {
             outline: none;
         }
+        
         @media screen and (min-width: 1200px) {
             width: 30vw;
         }

@@ -5,12 +5,12 @@ export const LoginSection = styled.section `
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
+    margin: 5vh 5vw;
 
     h3 {
-        font-size: 28px;
         color: white;
         margin: 5vh 0 2vh 0;
+        text-align: center;
     }
 
     form {

@@ -4,14 +4,15 @@ import styled from "styled-components"
 export const TicketsSection = styled.section `
     display: flex;
     flex-direction: column;
-    gap: 15vh;
     min-height: 68vh;
 
     @media screen and (min-width: 900px) {
         margin: 15vh 1vw;
+        gap: 15vh;
     }
     @media screen and (max-width: 900px) {
-        margin: 5vh 6vw 5vh 6vw;
+        margin: 9vh 6vw 9vh 6vw;
+        gap: 10vh;
     }
 
     #loading {
