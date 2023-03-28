@@ -4,13 +4,13 @@ import { Header } from "../../components/Header/Header"
 import { validateEmail, validatePassword } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { LoginSection, PasswordInput } from "./style"
-import {BsEye, BsEyeSlash} from 'react-icons/bs'
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
 import { Loading } from "../../components/Loading/Loading"
 
 
 export function Login () {
-    const [form, onChange, clearInputs] = useForm({email: "", password: ""})
+    const [form, onChange] = useForm({email: "", password: ""})
     const [errorEmail, setErrorEmail] = useState<string>("")
     const [errorPassword, setErrorPassword] = useState<string>("")
     const [axiosError, setAxiosError] = useState<string>("")
@@ -25,14 +25,9 @@ export function Login () {
 
         if (!validateEmail(form.email)) {
             setErrorEmail("Email inválido.")
-            setIsLoading(false)
-            return
         }
-
         if (!validatePassword(form.password)) {
             setErrorPassword("A senha deve ter pelo menos 8 caracteres.")
-            setIsLoading(false)
-            return
         }
 
         axios.post("https://lama-fctv.onrender.com/users/login", form)
@@ -45,6 +40,9 @@ export function Login () {
             setAxiosError(error.response.data)
             setIsLoading(false)
         })
+
+        setIsLoading(false)
+        return
     }
 
     return (

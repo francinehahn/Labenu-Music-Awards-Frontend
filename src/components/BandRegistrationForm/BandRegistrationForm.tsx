@@ -44,13 +44,13 @@ export function BandRegistrationForm (props: bandProps) {
                     Authorization: token
                 }
                 }).then(() => {
-                    setIsLoadingBand(false)
                     setSuccessMessage("Banda registrada com sucesso!")
                     props.setReload(!props.reload)
                     clearInputs()
-                }).catch(error => {
                     setIsLoadingBand(false)
+                }).catch(error => {
                     setAxiosError(error.response.data)
+                    setIsLoadingBand(false)
             })
         }
 

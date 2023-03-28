@@ -47,14 +47,14 @@ export function ConcertRegistrationForm (props: concertProps) {
                     Authorization: token
                 }
             }).then(() => {
-                setIsLoadingConcert(false)
                 setSuccessMessageConcert("Show cadastrado com sucesso!")
                 props.setReload(!props.reload)
                 clearInputs()
+                setIsLoadingConcert(false)
             })
             .catch(error => {
-                setIsLoadingConcert(false)
                 setAxiosErrorConcert(error.response.data)
+                setIsLoadingConcert(false)
             })
         }
 

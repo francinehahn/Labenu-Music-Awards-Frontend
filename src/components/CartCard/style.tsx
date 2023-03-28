@@ -13,14 +13,17 @@ export const CartSection = styled.div `
     @media screen and (min-width: 750px) {
         gap: 5vw;
         padding: 0 5vw;
+        width: 80vw;
     }
     @media screen and (min-width: 630px) and (max-width: 750px) {
         gap: 5vw;
         padding: 0 4vw;
+        width: 90vw;
     }
     @media screen and (max-width: 630px) {
         gap: 3vw;
         padding: 0 4vw;
+        width: 95vw;
     }
 
     p {
@@ -30,8 +33,8 @@ export const CartSection = styled.div `
 
     svg {
         color: white;
-        width: 25px;
-        height: 25px;
+        width: 23px;
+        height: 23px;
         margin-bottom: 1vh;
         cursor: pointer;
         :hover {

@@ -59,13 +59,13 @@ export function TicketRegistrationForm (props: ticketProps) {
                     Authorization: token
                 }
             }).then(() => {
-                setIsLoadingTicket(false)
                 setSuccessTicketMessage("Ingresso cadastrado com sucesso!")
                 clearInputs()
+                setIsLoadingTicket(false)
                 props.setReload(!props.reload)
             }).catch(error => {
-                setIsLoadingTicket(false)
                 setAxiosTicketError(error.response.data)
+                setIsLoadingTicket(false)
             })
         }
 

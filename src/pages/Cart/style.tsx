@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 export const CartSection = styled.section `
     margin-top: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media screen and (min-width: 1000px) {
         min-height: 60vh;

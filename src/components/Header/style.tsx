@@ -35,7 +35,7 @@ export const HeaderSection = styled.header `
 ` 
 
 export const HeaderDesktop = styled.div `
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 980px) {
         display: none;
     }
 
@@ -71,7 +71,7 @@ export const HeaderDesktop = styled.div `
 `
 
 export const MobileSymbol = styled.div `
-    @media screen and (min-width: 820px) {
+    @media screen and (min-width: 980px) {
         display: none;
     }
 

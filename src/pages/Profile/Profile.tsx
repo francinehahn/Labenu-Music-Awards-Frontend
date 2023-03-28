@@ -23,13 +23,12 @@ export function Profile () {
     const token = localStorage.getItem("token")
     const [reload, setReload] = useState(false)
     const [isLoadingPurchases, dataPurchases, errorPurchases] = useRequestData('https://lama-fctv.onrender.com/tickets/purchases', reload, token)
-    const [isLoadingUser, dataUser, errorUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
+    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
 
     const renderDataPurchases = dataPurchases && dataPurchases.map((item: purchase, index: number) => {
         return <PurchaseCard
                     key={index}
                     ticketName={item.ticket_name}
-                    price={item.price}
                     units={item.units}
                     totalPrice={item.total_price}
                 />
@@ -40,12 +39,15 @@ export function Profile () {
             <Header/>
 
             <ProfileSection>
-                {isLoadingUser && <Loading color="black"/>}
-                {!isLoadingUser && dataUser && <p id="userInfo">Usuário: {dataUser.name}</p>}
+                {!isLoadingUser && dataUser && <div id="userInfo"><p>Usuário: {dataUser.name}</p></div>}
 
-                <h3>Minhas compras:</h3>
-                {isLoadingPurchases && <Loading color="black"/>}
-                {!isLoadingPurchases && dataPurchases && renderDataPurchases}
+                {isLoadingPurchases && <div id="loadingDiv"><Loading color="black"/></div>}
+                {!isLoadingPurchases && dataPurchases && (
+                    <div id="purchases">
+                        <h3>Minhas compras:</h3>
+                        {renderDataPurchases}
+                    </div>
+                )}
                 {!isLoadingPurchases && !dataPurchases &&errorPurchases && <p>{errorPurchases}</p>}
 
 
