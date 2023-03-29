@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Cart } from "../pages/Cart/Cart"
 import { Home } from "../pages/Home/Home"
 import { Login } from "../pages/Login/Login"
-import { PhotoRegistration } from "../pages/PhotoRegistration/PhotoRegistration"
 import { Photos } from "../pages/Photos/Photos"
 import { Profile } from "../pages/Profile/Profile"
 import { RegisterPhotoForm } from "../pages/RegiterPhotoForm/RegisterPhotoForm"
@@ -16,7 +15,6 @@ export function Router() {
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route path="/fotos" element={<Photos/>}/>
-                <Route path="/cadastro-fotos" element={<PhotoRegistration/>}/>
                 <Route path="/ingressos" element={<Tickets/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/carrinho" element={<Cart/>}/>

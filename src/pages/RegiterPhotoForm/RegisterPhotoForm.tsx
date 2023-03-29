@@ -29,6 +29,7 @@ export function RegisterPhotoForm () {
 
         if (!validateImageUrl(photoForm.photoUrl)) {
             setPhotoError("Url inválida.")
+            setIsLoadingPhoto(false)
         }
 
         if (validateImageUrl(photoForm.photoUrl)) {
@@ -45,9 +46,6 @@ export function RegisterPhotoForm () {
                 setAxiosPhotoError(error.response.data)
             })
         }
-
-        setIsLoadingPhoto(false)
-        return
     }
 
     return (

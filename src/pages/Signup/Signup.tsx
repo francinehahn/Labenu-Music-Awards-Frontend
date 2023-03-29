@@ -33,19 +33,24 @@ export function Signup () {
 
         if (!validateUserName(form.name)) {
             setErrorName("Forneça seu nome completo sem o uso de acentuação.")
+            setIsLoading(false)
         }
         if (!validateEmail(form.email)) {
             setErrorEmail("Email inválido.")
+            setIsLoading(false)
         }
         if (!validatePassword(form.password)) {
             setErrorPassword("A senha deve conter no mínimo 8 caracteres.")
+            setIsLoading(false)
         }
         if (form.password !== form.confirmPassword) {
             setErrorConfirmPassword("Senha incorreta.")
+            setIsLoading(false)
         }
 
         if (form.role === "") {
             setErrorRole("Selecione o tipo de usuário.")
+            setIsLoading(false)
         }
 
         if (validateUserName(form.name) && validateEmail(form.email) && validatePassword(form.password) && form.password === form.confirmPassword && form.role !== "") {
@@ -68,9 +73,6 @@ export function Signup () {
                 setIsLoading(false)
             })
         }
-
-        setIsLoading(false)
-        return
     }
 
     return (

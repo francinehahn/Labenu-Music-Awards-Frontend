@@ -45,12 +45,15 @@ export function TicketRegistrationForm (props: ticketProps) {
         
         if (!validateTicketName(ticketForm.ticketName)) {
             setTicketNameError("O nome dos ingressos deve ter pelo menos 8 caracteres.")
+            setIsLoadingTicket(false)
         }
         if (Number(ticketForm.ticketsAvailable) < 1000) {
             setTicketsAvailableError("Você deve disponibilizar pelo menos 1000 ingressos.")
+            setIsLoadingTicket(false)
         }
         if (Number(ticketForm.price) < 50) {
             setPriceError("O valor do ingresso não pode ser menos do que R$50,00.")
+            setIsLoadingTicket(false)
         }
 
         if (validateTicketName(ticketForm.ticketName) && Number(ticketForm.ticketsAvailable) >= 1000 && Number(ticketForm.price) >= 50){
@@ -68,9 +71,6 @@ export function TicketRegistrationForm (props: ticketProps) {
                 setIsLoadingTicket(false)
             })
         }
-
-        setIsLoadingTicket(false)
-        return
     }
 
     return (
