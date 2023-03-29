@@ -10,15 +10,15 @@ import { PasswordInput, SignupSection } from "./style"
 
 export function Signup () {
     const [form, onChange, clearInputs] = useForm({name: "", email: "", password: "", confirmPassword: "", role: ""})
-    const [errorName, setErrorName] = useState<string>("")
-    const [errorEmail, setErrorEmail] = useState<string>("")
-    const [errorPassword, setErrorPassword] = useState<string>("")
-    const [errorConfirmPassword, setErrorConfirmPassword] = useState<string>("")
-    const [errorRole, setErrorRole] = useState<string>("")
-    const [successMessage, setSuccessMessage] = useState<string>("")
-    const [axiosError, setAxiosError] = useState<string>("")
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [inputType, setInputType] = useState<string>("password")
+    const [errorName, setErrorName] = useState("")
+    const [errorEmail, setErrorEmail] = useState("")
+    const [errorPassword, setErrorPassword] = useState("")
+    const [errorConfirmPassword, setErrorConfirmPassword] = useState("")
+    const [errorRole, setErrorRole] = useState("")
+    const [successMessage, setSuccessMessage] = useState("")
+    const [axiosError, setAxiosError] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
+    const [inputType, setInputType] = useState("password")
 
     const handleSignup = (e: any) => {
         e.preventDefault()

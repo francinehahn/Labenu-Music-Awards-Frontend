@@ -26,17 +26,12 @@ interface ticket {
 
 export function Tickets () {
     const [reload, setReload] = useState(true)
-    let productsInCart = localStorage.getItem("products")
     const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=friday", true)
     const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=saturday", true)
     const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=sunday", true)
     const carouselFriday = useRef<any>(null)
     const carouselSaturday = useRef<any>(null)
     const carouselSunday = useRef<any>(null)
-
-    useEffect(() => {
-        productsInCart = localStorage.getItem("products")
-    }, [reload])
 
     const renderdataFriday = dataFriday && dataFriday.map((item: ticket) => {
         return <TicketCard

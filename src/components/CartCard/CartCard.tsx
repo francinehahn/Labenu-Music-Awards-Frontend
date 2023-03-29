@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { BsTrash } from 'react-icons/bs'
 import { CartSection, Units } from './style'
 

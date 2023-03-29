@@ -11,11 +11,11 @@ import { Loading } from "../../components/Loading/Loading"
 
 export function Login () {
     const [form, onChange] = useForm({email: "", password: ""})
-    const [errorEmail, setErrorEmail] = useState<string>("")
-    const [errorPassword, setErrorPassword] = useState<string>("")
-    const [axiosError, setAxiosError] = useState<string>("")
-    const [isLoadingLogin, setIsLoadingLogin] = useState<boolean>(false)
-    const [inputType, setInputType] = useState<string>("password")
+    const [errorEmail, setErrorEmail] = useState("")
+    const [errorPassword, setErrorPassword] = useState("")
+    const [axiosError, setAxiosError] = useState("")
+    const [isLoadingLogin, setIsLoadingLogin] = useState(false)
+    const [inputType, setInputType] = useState("password")
 
     const navigate = useNavigate()
 

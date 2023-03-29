@@ -7,7 +7,7 @@ interface propsband {
     endTime: string
 }
 
-export function Bands (band: propsband) {
+export function BandCard (band: propsband) {
     return (
         <Container>
             <h4>{band.bandName}</h4>

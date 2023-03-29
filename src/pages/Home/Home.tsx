@@ -2,7 +2,7 @@ import { Header } from "../../components/Header/Header"
 import { HomeSection } from "./style"
 import imgdesktop from "../../images/img-home-desktop.png"
 import imgMobile from "../../images/img-home-mobile.png"
-import { Bands } from "../../components/Bands/Bands"
+import { BandCard } from "../../components/BandCard/BandCard"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Footer } from "../../components/Footer/Footer"
 import { Loading } from "../../components/Loading/Loading"
@@ -25,15 +25,15 @@ export function Home () {
     const navigate = useNavigate()
 
     const fridayConcerts = dataFriday && dataFriday.map((item: concert, index: number) => {
-        return <Bands key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
+        return <BandCard key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
     })
 
     const saturdayConcerts = dataSaturday && dataSaturday.map((item: concert, index: number) => {
-        return <Bands key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
+        return <BandCard key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
     })
 
     const sundayConcerts = dataSunday && dataSunday.map((item: concert, index: number) => {
-        return <Bands key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
+        return <BandCard key={index} bandName={item.name} startTime={item.start_time} endTime={item.end_time}/>
     })
 
     return (
