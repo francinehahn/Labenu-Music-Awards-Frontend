@@ -19,7 +19,7 @@ Data was consumed from an API Rest developed by me. The link of the github repos
 * React.js
 
 ## Link Surge
-https://useful-calculator.surge.sh/
+https://barbarous-wave.surge.sh/
 
 ## Images
 ### Desktop version
