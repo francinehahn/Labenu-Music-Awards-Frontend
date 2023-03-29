@@ -34,7 +34,7 @@ export const PhotoSection = styled.section `
         }
         @media screen and (max-width: 500px) {
             margin-left: 79vw;
-            padding: 1.5vh 2.7vw 1vh 2.7vw;
+            padding: 1.3vh 2.7vw .8vh 2.7vw;
         }
 
         svg {

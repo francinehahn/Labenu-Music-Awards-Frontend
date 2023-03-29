@@ -68,7 +68,12 @@ export const HomeSection = styled.section `
 
             div {
                 margin-bottom: 2vh;
-                gap: 1.5vw;
+                @media screen and (min-width: 1000px) {
+                    gap: 1vw;
+                }
+                @media screen and (max-width: 1000px) {
+                    gap: 1.5vw;
+                }
             }
         }
     }
