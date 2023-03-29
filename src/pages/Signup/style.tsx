@@ -57,6 +57,22 @@ export const SignupSection = styled.section `
     #axiosError {
         color: red;
         font-size: 16px;
+
+        @media screen and (min-width: 1200px) {
+            width: 30vw;
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1200px) {
+            width: 35vw;
+        }
+        @media screen and (min-width: 800px) and (max-width: 1000px) {
+            width: 45vw;
+        }
+        @media screen and (min-width: 600px) and (max-width: 800px) {
+            width: 60vw;
+        }
+        @media screen and (max-width: 600px) {
+            width: 80vw;
+        }
     }
 `
 
