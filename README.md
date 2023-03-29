@@ -54,6 +54,9 @@ https://useful-calculator.surge.sh/
 <img src="./src/images/print-mobile-home.png" width="40%"/>
 <br>
 
+<img src="./src/images/print-mobile-header.png" width="40%"/>
+<br>
+
 <img src="./src/images/print-mobile-tickets.png" width="40%"/>
 <br>
 
