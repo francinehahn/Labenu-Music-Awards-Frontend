@@ -36,18 +36,24 @@ export const HomeSection = styled.section `
     section {
         display: flex;
         justify-content: center;
-        gap: 13vw;
         flex-wrap: wrap;
         padding: 10vh 0 5vh 0;
 
-        @media screen and (min-width: 1000px) {
+        @media screen and (min-width: 1400px) {
             margin: 0 5vw;
+            gap: 12vw;
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1400px) {
+            margin: 0 5vw;
+            gap: 8vw;
         }
         @media screen and (min-width: 750px) and (max-width: 1000px) {
             margin: 0 10vw;
+            gap: 8vw;
         }
         @media screen and (max-width: 750px) {
             margin: 0 15vw;
+            gap: 8vw;
         }
 
         .div-home {
@@ -62,7 +68,7 @@ export const HomeSection = styled.section `
 
             div {
                 margin-bottom: 2vh;
-                gap: 1vw;
+                gap: 1.5vw;
             }
         }
     }
