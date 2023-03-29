@@ -14,35 +14,38 @@ export function Login () {
     const [errorEmail, setErrorEmail] = useState<string>("")
     const [errorPassword, setErrorPassword] = useState<string>("")
     const [axiosError, setAxiosError] = useState<string>("")
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isLoadingLogin, setIsLoadingLogin] = useState<boolean>(false)
     const [inputType, setInputType] = useState<string>("password")
 
     const navigate = useNavigate()
 
     const handleLogin = (e: any) => {
         e.preventDefault()
-        setIsLoading(true)
+        setIsLoadingLogin(true)
+        setErrorEmail("")
+        setErrorPassword("")
+        setAxiosError("")
 
         if (!validateEmail(form.email)) {
             setErrorEmail("Email inválido.")
+            setIsLoadingLogin(false)
         }
         if (!validatePassword(form.password)) {
             setErrorPassword("A senha deve ter pelo menos 8 caracteres.")
+            setIsLoadingLogin(false)
         }
 
-        axios.post("https://lama-fctv.onrender.com/users/login", form)
-        .then(response => {
-            localStorage.setItem("token", response.data.token)
-            setIsLoading(false)
-            navigate("/")
-        })
-        .catch(error => {
-            setAxiosError(error.response.data)
-            setIsLoading(false)
-        })
-
-        setIsLoading(false)
-        return
+        if (validateEmail(form.email) && validatePassword(form.password)) {
+            axios.post("https://lama-fctv.onrender.com/users/login", form)
+            .then(response => {
+                localStorage.setItem("token", response.data.token)
+                setIsLoadingLogin(false)
+                navigate("/")
+            }).catch(error => {
+                setAxiosError(error.response.data)
+                setIsLoadingLogin(false)
+            })
+        }
     }
 
     return (
@@ -68,7 +71,7 @@ export function Login () {
                     </div>
 
                     <p>{axiosError}</p>
-                    <button>{!isLoading? "Entrar" : <Loading color="orange"/>}</button>
+                    <button>{isLoadingLogin? <Loading color="orange"/> : "Entrar"}</button>
                 </form>
 
                 <span>

@@ -30,12 +30,15 @@ export function BandRegistrationForm (props: bandProps) {
         
         if (!validateBandName(bandForm.name)) {
             setNameError("O nome da banda deve ter pelo menos 3 caracteres.")
+            setIsLoadingBand(false)
         }
         if (!validateBandName(bandForm.musicGenre)) {
             setMusicGenreError("O gênero musical deve ter pelo menos 3 caracteres.")
+            setIsLoadingBand(false)
         }
         if (!validateUserName(bandForm.responsible)) {
             setResponsibleError("Informe o nome completo do responsável sem o uso de acentuação.")
+            setIsLoadingBand(false)
         }
 
         if (validateBandName(bandForm.name) && validateBandName(bandForm.musicGenre) && validateUserName(bandForm.responsible)) {
@@ -53,9 +56,6 @@ export function BandRegistrationForm (props: bandProps) {
                     setIsLoadingBand(false)
             })
         }
-
-        setIsLoadingBand(false)
-        return
     }
 
     return (

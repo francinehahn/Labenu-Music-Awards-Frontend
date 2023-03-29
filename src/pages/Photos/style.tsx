@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const PhotoSection = styled.section `
     display: flex;
     flex-direction: column;
-    margin: 0 4vw 5vh 4vw;
+    margin: 5vh 4vw 0 4vw;
     min-height: 68vh;
 
     @media screen and (max-width: 800px) {
@@ -16,8 +16,38 @@ export const PhotoSection = styled.section `
     }
 
     button {
-        margin-left: 78vw;
-        margin-top: 5vh;
+        @media screen and (min-width: 1200px) {
+            margin-left: 88vw;
+            padding: 1.5vh 1vw 1vh 1vw;
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1200px) {
+            margin-left: 87vw;
+            padding: 1.5vh 1.2vw 1vh 1.2vw;
+        }
+        @media screen and (min-width: 750px) and (max-width: 1000px) {
+            margin-left: 85vw;
+            padding: 1.5vh 1.5vw 1vh 1.5vw;
+        }
+        @media screen and (min-width: 500px) and (max-width: 750px) {
+            margin-left: 83vw;
+            padding: 1.5vh 2.2vw 1vh 2.2vw;
+        }
+        @media screen and (max-width: 500px) {
+            margin-left: 79vw;
+            padding: 1.5vh 2.7vw 1vh 2.7vw;
+        }
+
+        svg {
+            background-color: transparent;
+            @media screen and (min-width: 1000px) {
+                height: 28px;
+                width: 28px;
+            }
+            @media screen and (max-width: 1000px) {
+                height: 25px;
+                width: 25px;
+            }
+        }
     }
 
     p {
@@ -25,17 +55,16 @@ export const PhotoSection = styled.section `
         color: white;
     }
 
-    h2 {
-        font-size: 24px;
+    h3 {
         color: white;
-        margin: 5vh 0 1vh 0;
+        line-height: 9vh;
     }
 
     div {
         display: flex;
         gap: 1vw;
         flex-wrap: wrap;
-        margin-bottom: 3vh;
+        margin-bottom: 6vh;
         
         @media screen and (max-width: 800px) {
             justify-content: center;

@@ -36,9 +36,11 @@ export function ConcertRegistrationForm (props: concertProps) {
         
         if (formConcert.startTime.length < 8) {
             setStartTimeError("O formato do horário deve ser 00:00:00, sem haver minutos e segundos.")
+            setIsLoadingConcert(false)
         }
         if (formConcert.endTime.length < 8) {
             setEndTimeError("O formato do horário deve ser 00:00:00, sem haver minutos e segundos.")
+            setIsLoadingConcert(false)
         }
 
         if (formConcert.startTime.length >= 8 && formConcert.endTime.length >= 8) {
@@ -57,9 +59,6 @@ export function ConcertRegistrationForm (props: concertProps) {
                 setIsLoadingConcert(false)
             })
         }
-
-        setIsLoadingConcert(false)
-        return
     }
 
     return (

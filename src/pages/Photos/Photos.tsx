@@ -1,11 +1,12 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
 import { useRequestData } from "../../hooks/useRequestData"
 import { PhotoSection } from "./style"
+import { RiImageAddLine } from "react-icons/ri"
 
 
 interface data {
@@ -62,12 +63,12 @@ export function Photos () {
             <Header/>
             
             <PhotoSection>
-                {!isLoadingUser && dataUser && dataUser.role === "ADMIN" && <button onClick={() => navigate("/cadastrar-foto")}>Postar foto</button>}
+                {!isLoadingUser && dataUser && dataUser.role === "ADMIN" && <button onClick={() => navigate("/cadastrar-foto")}><RiImageAddLine/></button>}
                 {(isLoadingFriday || isLoadingSaturday || isLoadingSunday) && <span> <Loading color="black"/> </span>}
                 
                 {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataFriday && (
                     <>
-                        <h2>Sexta-feira</h2>
+                        <h3>Sexta-feira</h3>
                         <div>{renderDataFriday}</div>
                     </>
                 )}
@@ -75,7 +76,7 @@ export function Photos () {
 
                 {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataSaturday && (
                     <>
-                        <h2>Sábado</h2>
+                        <h3>Sábado</h3>
                         <div>{renderDataSaturday}</div>
                     </>
                 )}
@@ -83,7 +84,7 @@ export function Photos () {
 
                 {!isLoadingFriday && !isLoadingSaturday && !isLoadingSunday && dataSunday && (
                     <>
-                        <h2>Domingo</h2>
+                        <h3>Domingo</h3>
                         <div>{renderDataSunday}</div>
                     </>
                 )}
