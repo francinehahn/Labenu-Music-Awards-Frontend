@@ -6,6 +6,7 @@ import { Loading } from "../../components/Loading/Loading"
 import { validateEmail, validateUserName, validatePassword } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { PasswordInput, SignupSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 
 export function Signup () {
@@ -61,7 +62,7 @@ export function Signup () {
                 role: form.role
             }
 
-            axios.post("https://lama-fctv.onrender.com/users/signup", body)
+            axios.post(`${baseUrl}users/signup`, body)
             .then(response => {
                 localStorage.setItem("token", response.data.token)
                 setSuccessMessage("Conta criada com sucesso!")

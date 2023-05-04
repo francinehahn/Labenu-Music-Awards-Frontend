@@ -9,6 +9,7 @@ import { TicketRegistrationForm } from "../../components/TicketRegistrationForm/
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { useRequestData } from "../../hooks/useRequestData"
 import { ProfileSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface purchase {
     ticket_name: string,
@@ -22,8 +23,8 @@ export function Profile () {
 
     const token = localStorage.getItem("token")
     const [reload, setReload] = useState(false)
-    const [isLoadingPurchases, dataPurchases, errorPurchases] = useRequestData('https://lama-fctv.onrender.com/tickets/purchases', reload, token)
-    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
+    const [isLoadingPurchases, dataPurchases, errorPurchases] = useRequestData(`${baseUrl}tickets/purchases`, reload, token)
+    const [isLoadingUser, dataUser] = useRequestData(`${baseUrl}users/account`, reload, token)
 
     const renderDataPurchases = dataPurchases && dataPurchases.map((item: purchase, index: number) => {
         return <PurchaseCard

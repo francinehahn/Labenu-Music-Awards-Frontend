@@ -1,9 +1,10 @@
 import axios from "axios"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Loading } from "../Loading/Loading"
 import { FormSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface band {
     id: string,
@@ -19,7 +20,7 @@ interface concertProps {
 
 export function ConcertRegistrationForm (props: concertProps) {
     const token = localStorage.getItem("token")
-    const [isLoadingBands, data] = useRequestData('https://lama-fctv.onrender.com/bands', props.reload)
+    const [isLoadingBands, data] = useRequestData(`${baseUrl}bands`, props.reload)
     const [formConcert, onChangeConcert, clearInputs] = useForm({weekDay: "", startTime: "", endTime: "", bandId: ""})
     const [isLoadingConcert, setIsLoadingConcert] = useState(false)
     const [startTimeError, setStartTimeError] = useState("")
@@ -44,7 +45,7 @@ export function ConcertRegistrationForm (props: concertProps) {
         }
 
         if (formConcert.startTime.length >= 8 && formConcert.endTime.length >= 8) {
-            axios.post('https://lama-fctv.onrender.com/concerts/create', formConcert, {
+            axios.post(`${baseUrl}concerts/create`, formConcert, {
                 headers: {
                     Authorization: token
                 }

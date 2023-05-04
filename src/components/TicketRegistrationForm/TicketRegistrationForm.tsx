@@ -5,6 +5,7 @@ import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Loading } from "../Loading/Loading"
 import { FormSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface concert {
     id: "7e1b3d15-7df5-41a3-a5c4-73897023ba5e",
@@ -22,7 +23,7 @@ interface ticketProps {
 
 export function TicketRegistrationForm (props: ticketProps) {
     const token = localStorage.getItem("token")
-    const [isLoadingConcerts, dataConcerts] = useRequestData('https://lama-fctv.onrender.com/concerts', props.reload)
+    const [isLoadingConcerts, dataConcerts] = useRequestData(`${baseUrl}concerts`, props.reload)
     const [ticketForm, ticketOnChange, clearInputs] = useForm({ticketName: "", ticketsAvailable: "", price: "", concertId: ""})
     const [isLoadingTicket, setIsLoadingTicket] = useState(false)
     const [ticketNameError, setTicketNameError] = useState("")
@@ -57,7 +58,7 @@ export function TicketRegistrationForm (props: ticketProps) {
         }
 
         if (validateTicketName(ticketForm.ticketName) && Number(ticketForm.ticketsAvailable) >= 1000 && Number(ticketForm.price) >= 50){
-            axios.post('https://lama-fctv.onrender.com/tickets/create', ticketForm, {
+            axios.post(`${baseUrl}tickets/create`, ticketForm, {
                 headers: {
                     Authorization: token
                 }

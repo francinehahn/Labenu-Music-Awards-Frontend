@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
@@ -10,6 +10,7 @@ import ticketSaturday from "../../images/ticket-saturday.png"
 import ticketSunday from "../../images/ticket-sunday.png"
 import {IoIosArrowDroprightCircle} from "react-icons/io"
 import {IoIosArrowDropleftCircle} from "react-icons/io"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface ticket {
     id: string,
@@ -26,9 +27,9 @@ interface ticket {
 
 export function Tickets () {
     const [reload, setReload] = useState(true)
-    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=friday", true)
-    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=saturday", true)
-    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/tickets?weekDay=sunday", true)
+    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData(`${baseUrl}tickets?weekDay=friday`, true)
+    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData(`${baseUrl}tickets?weekDay=saturday`, true)
+    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData(`${baseUrl}tickets?weekDay=sunday`, true)
     const carouselFriday = useRef<any>(null)
     const carouselSaturday = useRef<any>(null)
     const carouselSunday = useRef<any>(null)

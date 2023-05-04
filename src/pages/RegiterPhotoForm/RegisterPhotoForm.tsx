@@ -7,13 +7,14 @@ import { useForm } from "../../hooks/useForm"
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { useRequestData } from "../../hooks/useRequestData"
 import { LoadingDiv, PhotoForm, Unauthorized } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 
 export function RegisterPhotoForm () {
     useProtectedPage()
 
     const token = localStorage.getItem("token")
-    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', true, token)
+    const [isLoadingUser, dataUser] = useRequestData(`${baseUrl}users/account`, true, token)
     const [isLoadingPhoto, setIsLoadingPhoto] = useState(false)
     const [photoForm, onChangePhoto, clearInputs] = useForm({photoUrl: "", weekDay: ""})
     const [photoError, setPhotoError] = useState("")
@@ -33,7 +34,7 @@ export function RegisterPhotoForm () {
         }
 
         if (validateImageUrl(photoForm.photoUrl)) {
-            axios.post('https://lama-fctv.onrender.com/photos/create', photoForm, {
+            axios.post(`${baseUrl}photos/create`, photoForm, {
                 headers: {
                     Authorization: token
                 }

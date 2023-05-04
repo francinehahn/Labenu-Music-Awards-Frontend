@@ -6,6 +6,7 @@ import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
 import { ButtonDiv, CartSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface products {
     id: string,
@@ -40,7 +41,7 @@ export function Cart () {
                 })
             }
 
-            axios.post('https://lama-fctv.onrender.com/tickets/purchase', {tickets: body}, {
+            axios.post(`${baseUrl}tickets/purchase`, {tickets: body}, {
                 headers: {
                     Authorization: token
                 }
