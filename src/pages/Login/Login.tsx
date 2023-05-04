@@ -7,6 +7,7 @@ import { LoginSection, PasswordInput } from "./style"
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
 import { Loading } from "../../components/Loading/Loading"
+import { baseUrl } from "../../constants/baseUrl"
 
 
 export function Login () {
@@ -36,7 +37,7 @@ export function Login () {
         }
 
         if (validateEmail(form.email) && validatePassword(form.password)) {
-            axios.post("https://lama-fctv.onrender.com/users/login", form)
+            axios.post(`${baseUrl}users/login`, form)
             .then(response => {
                 localStorage.setItem("token", response.data.token)
                 setIsLoadingLogin(false)

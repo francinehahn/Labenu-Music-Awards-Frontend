@@ -2,7 +2,7 @@
 
 This is a React project that simulates a website that manages a music festival lasting three days. The bands start playing at 8am and finish at 11pm. There are two different types of user roles: ADMIN and NORMAL. Only ADMIN users can register bands, concerts, tickets and photos and also delete photos.
 
-Data was consumed from an API Rest developed by me. The link of the github repository is: https://github.com/future4code/Barros-LAMA12
+Data was consumed from an API Rest developed by me. The link of the github repository is: https://github.com/francinehahn/Labenu-Music-Awards-Backend
 
 ## Functionalities
 * On the login page, users can log into the website and on the signup page, they can create a new account;
@@ -18,8 +18,8 @@ Data was consumed from an API Rest developed by me. The link of the github repos
 * Styled-components
 * React.js
 
-## Link Surge
-https://barbarous-wave.surge.sh/
+## Deploy
+
 
 ## Images
 ### Desktop version
@@ -51,32 +51,32 @@ https://barbarous-wave.surge.sh/
 <br>
 
 ### Mobile version
-<img src="./src/images/print-mobile-home.png" width="40%"/>
+<img src="./src/images/print-mobile-home.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-header.png" width="40%"/>
+<img src="./src/images/print-mobile-header.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-tickets.png" width="40%"/>
+<img src="./src/images/print-mobile-tickets.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-photos.png" width="40%"/>
+<img src="./src/images/print-mobile-photos.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-cart1.png" width="40%"/>
+<img src="./src/images/print-mobile-cart1.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-cart2.png" width="40%"/>
+<img src="./src/images/print-mobile-cart2.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-login.png" width="40%"/>
+<img src="./src/images/print-mobile-login.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-signup.png" width="40%"/>
+<img src="./src/images/print-mobile-signup.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-myaccount.png" width="40%"/>
+<img src="./src/images/print-mobile-myaccount.png" width="35%"/>
 <br>
 
-<img src="./src/images/print-mobile-myaccount2.png" width="40%"/>
+<img src="./src/images/print-mobile-myaccount2.png" width="35%"/>
 <br>

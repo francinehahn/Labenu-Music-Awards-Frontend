@@ -7,6 +7,7 @@ import { useRequestData } from "../../hooks/useRequestData"
 import { Footer } from "../../components/Footer/Footer"
 import { Loading } from "../../components/Loading/Loading"
 import { useNavigate } from "react-router-dom"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface concert {
     id: string,
@@ -18,9 +19,9 @@ interface concert {
 }
 
 export function Home () {
-    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=friday", true)
-    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=saturday", true)
-    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/concerts?weekDay=sunday", true)
+    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData(`${baseUrl}concerts?weekDay=friday`, true)
+    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData(`${baseUrl}concerts?weekDay=saturday`, true)
+    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData(`${baseUrl}concerts?weekDay=sunday`, true)
 
     const navigate = useNavigate()
 

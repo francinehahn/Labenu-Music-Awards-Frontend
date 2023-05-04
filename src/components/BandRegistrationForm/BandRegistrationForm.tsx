@@ -4,6 +4,7 @@ import { validateBandName, validateUserName } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { Loading } from "../Loading/Loading"
 import { FormSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface bandProps {
     reload: boolean,
@@ -42,7 +43,7 @@ export function BandRegistrationForm (props: bandProps) {
         }
 
         if (validateBandName(bandForm.name) && validateBandName(bandForm.musicGenre) && validateUserName(bandForm.responsible)) {
-            axios.post('https://lama-fctv.onrender.com/bands/create', bandForm, {
+            axios.post(`${baseUrl}bands/create`, bandForm, {
                 headers: {
                     Authorization: token
                 }

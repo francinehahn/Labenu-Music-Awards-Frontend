@@ -7,6 +7,7 @@ import { Loading } from "../../components/Loading/Loading"
 import { useRequestData } from "../../hooks/useRequestData"
 import { PhotoSection } from "./style"
 import { RiImageAddLine } from "react-icons/ri"
+import { baseUrl } from "../../constants/baseUrl"
 
 
 interface data {
@@ -19,10 +20,10 @@ interface data {
 export function Photos () {
     const token = localStorage.getItem("token")
     const [reload, setReload] = useState(false)
-    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=friday", reload)
-    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=saturday", reload)
-    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData("https://lama-fctv.onrender.com/photos?weekDay=sunday", reload)
-    const [isLoadingUser, dataUser] = useRequestData('https://lama-fctv.onrender.com/users/account', reload, token)
+    const [isLoadingFriday, dataFriday, errorFriday] = useRequestData(`${baseUrl}photos?weekDay=friday`, reload)
+    const [isLoadingSaturday, dataSaturday, errorSaturday] = useRequestData(`${baseUrl}photos?weekDay=saturday`, reload)
+    const [isLoadingSunday, dataSunday, errorSunday] = useRequestData(`${baseUrl}photos?weekDay=sunday`, reload)
+    const [isLoadingUser, dataUser] = useRequestData(`${baseUrl}users/account`, reload, token)
 
     const navigate = useNavigate()
 
@@ -33,7 +34,7 @@ export function Photos () {
             const deletePhotoConfirmation = confirm("Você gostaria de deletar essa foto?")
             
             if (deletePhotoConfirmation) {
-                axios.delete(`https://lama-fctv.onrender.com/photos/${id}`, {
+                axios.delete(`${baseUrl}photos/${id}`, {
                     headers: {
                         Authorization: token
                     }
