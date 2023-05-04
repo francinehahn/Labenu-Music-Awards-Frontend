@@ -19,7 +19,7 @@ Data was consumed from an API Rest developed by me. The link of the github repos
 * React.js
 
 ## Deploy
-
+https://labenu-music-awards-frontend.vercel.app/
 
 ## Images
 ### Desktop version
