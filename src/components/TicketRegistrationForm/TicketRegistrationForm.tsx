@@ -1,11 +1,13 @@
-import axios from "axios"
 import { useState } from "react"
+import axios from "axios"
+
 import { validateTicketName } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
-import { Loading } from "../Loading/Loading"
-import { FormSection } from "./style"
 import { baseUrl } from "../../constants/baseUrl"
+import { Loading } from "../Loading/Loading"
+
+import { Error, FormSection, SuccessMessage } from "./style"
 
 interface concert {
     id: "7e1b3d15-7df5-41a3-a5c4-73897023ba5e",
@@ -103,8 +105,8 @@ export function TicketRegistrationForm (props: ticketProps) {
                 </select>
             </div>
 
-            <p id="error">{axiosTicketError}</p>
-            <p id="successMessage">{successTicketMessage}</p>
+            <Error>{axiosTicketError}</Error>
+            <SuccessMessage>{successTicketMessage}</SuccessMessage>
 
             <button>{isLoadingTicket? <Loading color="orange"/> : 'Registrar ingresso'}</button>
         </FormSection>
