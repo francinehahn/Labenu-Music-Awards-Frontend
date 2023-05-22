@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header/Header"
-import { HomeSection } from "./style"
+import { DivHome, HomeSection, ImgDesktop, ImgMobile } from "./style"
 import imgdesktop from "../../images/img-home-desktop.png"
 import imgMobile from "../../images/img-home-mobile.png"
 import { BandCard } from "../../components/BandCard/BandCard"
@@ -42,30 +42,30 @@ export function Home () {
             <Header/>
 
             <HomeSection>
-                <img id="imgDesktop" src={imgdesktop} alt="Imagem de um show"/>
-                <img id="imgMobile" src={imgMobile} alt="Imagem de um show"/>
+                <ImgDesktop src={imgdesktop} alt="Imagem de um show"/>
+                <ImgMobile src={imgMobile} alt="Imagem de um show"/>
 
                 <section>
-                    <div className="div-home">
-                        <h3 className="title-week-day">Sexta-feira</h3>
+                    <DivHome>
+                        <h3>Sexta-feira</h3>
                         {isLoadingFriday && <Loading color="black"/>}
                         {!isLoadingFriday && dataFriday && <div>{fridayConcerts}</div>}
                         {!isLoadingFriday && !dataFriday && errorFriday && <p>{errorFriday}</p>}
-                    </div>
+                    </DivHome>
 
-                    <div className="div-home">
-                        <h3 className="title-week-day">Sábado</h3>
+                    <DivHome>
+                        <h3>Sábado</h3>
                         {isLoadingSaturday && <Loading color="black"/>}
                         {!isLoadingSaturday && dataSaturday && <div>{saturdayConcerts}</div>}
                         {!isLoadingSaturday && !dataSaturday && errorSaturday && <p>{errorSaturday}</p>}
-                    </div>
+                    </DivHome>
 
-                    <div className="div-home">
-                        <h3 className="title-week-day">Domingo</h3>
+                    <DivHome>
+                        <h3>Domingo</h3>
                         {isLoadingSunday && <Loading color="black"/>}
                         {!isLoadingSunday && dataSunday && <div>{sundayConcerts}</div>}
                         {!isLoadingSunday && !dataSunday && errorSunday && <p>{errorSunday}</p>}
-                    </div>
+                    </DivHome>
                 </section>
 
                 <button onClick={() => navigate("/ingressos")}>Ingressos</button>
