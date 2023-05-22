@@ -4,8 +4,8 @@ import styled from "styled-components"
 export const PhotoSection = styled.section `
     display: flex;
     flex-direction: column;
-    margin: 5vh 4vw 0 4vw;
-    min-height: 68vh;
+    margin: 2rem 4rem 0 4rem;
+    min-height: 75vh;
 
     @media screen and (max-width: 800px) {
         align-items: center;    
@@ -16,64 +16,58 @@ export const PhotoSection = styled.section `
     }
 
     button {
-        @media screen and (min-width: 1200px) {
-            margin-left: 88vw;
-            padding: 1.5vh 1vw 1vh 1vw;
-        }
-        @media screen and (min-width: 1000px) and (max-width: 1200px) {
-            margin-left: 87vw;
-            padding: 1.5vh 1.2vw 1vh 1.2vw;
-        }
-        @media screen and (min-width: 750px) and (max-width: 1000px) {
-            margin-left: 85vw;
-            padding: 1.5vh 1.5vw 1vh 1.5vw;
-        }
-        @media screen and (min-width: 500px) and (max-width: 750px) {
+        margin-left: 88vw;
+        padding: .5rem .8rem;
+
+        @media screen and (min-width: 900px) and (max-width: 1200px) {
             margin-left: 83vw;
-            padding: 1.5vh 2.2vw 1vh 2.2vw;
+        }
+        @media screen and (min-width: 500px) and (max-width: 900px) {
+            margin-left: 75vw;
         }
         @media screen and (max-width: 500px) {
-            margin-left: 79vw;
-            padding: 1.3vh 2.7vw .8vh 2.7vw;
+            margin-left: 70vw;
+        }
+        @media screen and (max-width: 400px) {
+            margin-left: 65vw;
         }
 
         svg {
             background-color: transparent;
             @media screen and (min-width: 1000px) {
-                height: 28px;
-                width: 28px;
+                height: 1.75rem;
+                width: 1.75rem;
             }
             @media screen and (max-width: 1000px) {
-                height: 25px;
-                width: 25px;
+                height: 1.56rem;
+                width: 1.56rem;
             }
         }
     }
 
     p {
-        font-size: 16px;
+        font-size: 1rem;
         color: white;
     }
 
     h3 {
         color: white;
-        line-height: 9vh;
+        line-height: 3.5rem;
     }
 
     div {
         display: flex;
-        gap: 1vw;
+        gap: 1rem;
         flex-wrap: wrap;
         margin-bottom: 6vh;
         
         @media screen and (max-width: 800px) {
             justify-content: center;
-            gap: 2vw; 
         }
 
         img {
-            width: 300px;
-            height: 200px;
+            width: 18.75rem;
+            height: 12.5rem;
             :hover {
                 cursor: pointer;
                 opacity: .7;
