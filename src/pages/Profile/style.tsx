@@ -45,7 +45,7 @@ export const UserInfo = styled.div `
     width: 95vw;
     display: flex;
     justify-content: flex-end;
-    padding: 0 1rem;
+    margin: .5rem 1rem;
 
     p {
         color: black;

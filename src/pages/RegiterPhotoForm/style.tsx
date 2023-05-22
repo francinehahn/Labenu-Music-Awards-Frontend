@@ -15,26 +15,26 @@ export const PhotoForm = styled.form `
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2vh;
-    margin-top: 15vh;
+    gap: .7rem;
+    margin-top: 7rem;
 
     div {
         display: flex;
         flex-direction: column;
 
         p {
-            font-size: 14px;
+            font-size: .875rem;
             color: red;
         }
     }
+`
 
-    #error {
-        font-size: 16px;
-        color: red;
-    }
+export const Error = styled.p `
+    font-size: 1rem;
+    color: red;
+`
 
-    #successMessage {
-        font-size: 16px;
-        color: green;
-    }
+export const SuccessMessage = styled.p `
+    font-size: 1rem;
+    color: green;
 `
