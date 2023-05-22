@@ -6,7 +6,7 @@ export const HeaderSection = styled.header `
     justify-content: space-between;
     align-items: center;
     padding: 0 5rem;
-    min-height: 8vh;
+    min-height: 9vh;
     border-bottom: 1px solid var(--light-grey);
     position: sticky;
     top: 0;
@@ -84,10 +84,14 @@ export const HeaderMobile = styled.header `
     width: 100vw;
 
     button {
-        margin: 1rem 0 1rem 87vw;
+        margin: 1.5rem 0 1rem 87vw;
         padding: .35rem .95rem;
         border-radius: 4px;
         font-size: 1.125rem;
+
+        @media screen and (max-width: 500px) {
+            margin: 1.5rem 0 1rem 82vw;
+        }
     }
 
     nav {
