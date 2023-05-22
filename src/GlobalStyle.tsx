@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: white;
         font-size: 1rem;
         color: black;
-        padding: .5rem;
+        padding: .3rem;
         border: none;
         width: 30rem;
 
