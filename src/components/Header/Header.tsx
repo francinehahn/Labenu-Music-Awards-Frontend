@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import logo from "../../images/LAMA_logo.png"
 import { HeaderDesktop, HeaderMobile, HeaderSection, MobileSymbol } from "./style"
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { useRequestData } from "../../hooks/useRequestData"
+import { baseUrl } from "../../constants/baseUrl"
 
 interface headerProps {
     reload?: boolean
@@ -12,6 +14,13 @@ export function Header (props: headerProps) {
     const token = localStorage.getItem("token")
     let ticketsInCart = localStorage.getItem("products")
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+  
+    if (token) {
+        const [isLoadingUserData, userData, userError] = useRequestData(`${baseUrl}users/account`, true, token)
+        if (!isLoadingUserData && !userData && userError) {
+            localStorage.removeItem("token")
+        }
+    }
 
     useEffect(() => {
         ticketsInCart = localStorage.getItem("products")
