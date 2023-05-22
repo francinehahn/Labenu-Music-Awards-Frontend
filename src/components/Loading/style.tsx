@@ -2,8 +2,8 @@ import styled from "styled-components"
 
 
 export const LoadingSection = styled.div `
-    height: 25px;
-    width: 25px;
+    height: 1.56rem;
+    width: 1.56rem;
     border-radius: 50%;
     border: 4px solid white;
     border-bottom: 4px solid ${props => props.color === "black"? "#000000" : "#F47C00"};
