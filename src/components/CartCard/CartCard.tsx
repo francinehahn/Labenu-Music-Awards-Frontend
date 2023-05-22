@@ -59,9 +59,10 @@ export function CartCard(props: propsCart) {
                 <button onClick={handleIncreaseUnit}>+</button>
             </Units>
             
-            <p>R${(props.price * props.units).toFixed(2).replace(".", ",")}</p>
-
-            <BsTrash onClick={removeProduct}/>
+            <span>
+                <p>R${(props.price * props.units).toFixed(2).replace(".", ",")}</p>
+                <BsTrash onClick={removeProduct}/>
+            </span>
         </CartSection>
     )
 }
