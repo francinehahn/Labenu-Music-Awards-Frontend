@@ -1,12 +1,15 @@
-import axios from "axios"
 import { useState } from "react"
+
+import axios from "axios"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
+
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
 import { validateEmail, validateUserName, validatePassword } from "../../constants/constants"
-import { useForm } from "../../hooks/useForm"
-import { PasswordInput, SignupSection } from "./style"
 import { baseUrl } from "../../constants/baseUrl"
+import { useForm } from "../../hooks/useForm"
+
+import { AxiosError, PasswordInput, SignupSection, SuccessMessage } from "./style"
 
 
 export function Signup () {
@@ -127,8 +130,8 @@ export function Signup () {
                     <button>{isLoading? <Loading color={"orange"}/> : "Cadastrar"}</button>
                 </form>
 
-                <span id="successMessage">{successMessage}</span>
-                <span id="axiosError">{axiosError}</span>
+                <SuccessMessage>{successMessage}</SuccessMessage>
+                <AxiosError>{axiosError}</AxiosError>
             </SignupSection>
         </>
     )

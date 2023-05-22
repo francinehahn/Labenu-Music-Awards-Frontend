@@ -5,19 +5,18 @@ export const SignupSection = styled.section `
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5vh 5vw;
+    gap: 1.5rem;
+    margin: 5rem 2rem;
 
     h3 {
         color: white;
-        margin: 5vh 0 2vh 0;
         text-align: center;
     }
 
     form {
         display: flex;
         flex-direction: column;
-        gap: 2vh;
-        margin-top: 2vh;
+        gap: .7rem;
         
         div {
             display: flex;
@@ -25,99 +24,66 @@ export const SignupSection = styled.section `
 
             p {
                 color: red;
-                font-size: 14px;
-                @media screen and (min-width: 1200px) {
-                    width: 30vw;
-                }
-                @media screen and (min-width: 1000px) and (max-width: 1200px) {
-                    width: 35vw;
-                }
-                @media screen and (min-width: 800px) and (max-width: 1000px) {
-                    width: 45vw;
-                }
-                @media screen and (min-width: 600px) and (max-width: 800px) {
-                    width: 60vw;
+                font-size: .875rem;
+                width: 30rem;
+
+                @media screen and (max-width: 1000px) {
+                    width: 25rem;
                 }
                 @media screen and (max-width: 600px) {
-                    width: 80vw;
-                }
+                    width: 20rem;
+                }            
             }
         }
 
         button {
-            margin-top: 2vh;
-        }
-    }
-
-    #successMessage {
-        color: green;
-        font-size: 16px;
-    }
-
-    #axiosError {
-        color: red;
-        font-size: 16px;
-
-        @media screen and (min-width: 1200px) {
-            width: 30vw;
-        }
-        @media screen and (min-width: 1000px) and (max-width: 1200px) {
-            width: 35vw;
-        }
-        @media screen and (min-width: 800px) and (max-width: 1000px) {
-            width: 45vw;
-        }
-        @media screen and (min-width: 600px) and (max-width: 800px) {
-            width: 60vw;
-        }
-        @media screen and (max-width: 600px) {
-            width: 80vw;
+            margin-top: 1rem;
         }
     }
 `
-
 
 export const PasswordInput = styled.span `
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: white;
+    width: 30rem;
 
-    @media screen and (min-width: 1200px) {
-        width: 30vw;
-    }
-    @media screen and (min-width: 1000px) and (max-width: 1200px) {
-        width: 35vw;
-    }
-    @media screen and (min-width: 800px) and (max-width: 1000px) {
-        width: 45vw;
-    }
-    @media screen and (min-width: 600px) and (max-width: 800px) {
-        width: 60vw;
+    @media screen and (max-width: 1000px) {
+        width: 25rem;
     }
     @media screen and (max-width: 600px) {
-        width: 80vw;
+        width: 20rem;
     }
     
     svg {
         color: #515151;
         background-color: white;
-        height: 20px;
-        width: 20px;
-
-        @media screen and (min-width: 1100px) {
-            margin: .5vh .5vw;
-        }
-        @media screen and (min-width: 500px) and (max-width: 1100px) {
-            margin: .5vh 1vw;
-        }
-        @media screen and (max-width: 500px) {
-            margin: .5vh 1.5vw;
-        }
+        height: 1.25rem;
+        width: 1.25rem;
+        margin: .5rem;
 
         :hover {
             opacity: .7;
             cursor: pointer;
         }
+    }
+`
+
+export const SuccessMessage = styled.p `
+    color: green;
+    font-size: 1rem;
+`
+
+export const AxiosError = styled.p `
+    color: red;
+    font-size: 1rem;
+    width: 30rem;
+
+    @media screen and (max-width: 1000px) {
+        width: 25rem;
+    }
+    @media screen and (max-width: 600px) {
+        width: 20rem;
     }
 `
