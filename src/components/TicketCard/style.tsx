@@ -36,8 +36,6 @@ export const TicketSection = styled.div `
         }
 
         p {
-            font-size: 1rem;
-            color: black;
             background-color: white;
         }
     }
