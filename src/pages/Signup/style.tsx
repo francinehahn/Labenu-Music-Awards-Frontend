@@ -6,7 +6,7 @@ export const SignupSection = styled.section `
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    margin: 5rem 2rem;
+    margin: 4rem 2rem 0 2rem;
 
     h3 {
         color: white;
