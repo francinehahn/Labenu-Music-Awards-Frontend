@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CartSection = styled.section `
-    margin-top: 6vh;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,5 +41,5 @@ export const EmptyCart = styled.p `
     color: white;
     font-size: 1.125rem;
     text-align: center;
-    padding: 34vh 0;
+    padding: 27vh 0 38vh 0;
 `

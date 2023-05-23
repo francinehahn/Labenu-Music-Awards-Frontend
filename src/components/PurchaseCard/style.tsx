@@ -4,7 +4,7 @@ export const PurchaseDiv = styled.div `
     display: flex;
     justify-content: center;
     gap: 5rem;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--light-grey);
     width: 52vw;
 
     @media screen and (min-width: 1200px) and (max-width: 1500px) {
