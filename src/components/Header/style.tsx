@@ -68,9 +68,9 @@ export const MobileSymbol = styled.div `
 
     div {
         background-color: white;
-        height: 6px;
-        width: 2.5rem;
-        margin: .5vh 0;
+        height: 5px;
+        width: 2.3rem;
+        margin: .3rem 0;
         border-radius: 2px;
     }
 `
@@ -85,7 +85,7 @@ export const HeaderMobile = styled.header `
 
     button {
         margin: 1.5rem 0 1rem 87vw;
-        padding: .35rem .95rem;
+        padding: .25rem .85rem;
         border-radius: 4px;
         font-size: 1.125rem;
 

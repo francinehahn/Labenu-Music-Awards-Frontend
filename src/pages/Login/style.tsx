@@ -68,6 +68,17 @@ export const PasswordInput = styled.span `
         width: 20rem;
     }
     
+    input {
+        width: 28.75rem;
+
+        @media screen and (max-width: 1000px) {
+            width: 23.75rem;
+        }
+        @media screen and (max-width: 600px) {
+            width: 18.75rem;
+        }
+    }
+    
     svg {
         color: #515151;
         background-color: white;
