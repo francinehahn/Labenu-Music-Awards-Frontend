@@ -57,13 +57,13 @@ export const PasswordInput = styled.span `
     }
 
     input {
-        width: 28.75rem;
+        width: 27rem;
 
         @media screen and (max-width: 1000px) {
-            width: 23.75rem;
+            width: 22rem;
         }
         @media screen and (max-width: 600px) {
-            width: 18.75rem;
+            width: 17rem;
         }
     }
     
