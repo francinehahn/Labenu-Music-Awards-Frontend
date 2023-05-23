@@ -17,12 +17,10 @@ export function Header (props: headerProps) {
     const token = localStorage.getItem("token")
     let ticketsInCart = localStorage.getItem("products")
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+    const [isLoadingUserData, userData, userError] = useRequestData(`${baseUrl}users/account`, true, token)
   
-    if (token) {
-        const [isLoadingUserData, userData, userError] = useRequestData(`${baseUrl}users/account`, true, token)
-        if (!isLoadingUserData && !userData && userError) {
-            localStorage.removeItem("token")
-        }
+    if (!isLoadingUserData && !userData && userError) {
+        localStorage.removeItem("token")
     }
 
     useEffect(() => {
@@ -37,7 +35,7 @@ export function Header (props: headerProps) {
         return (
             <nav>
                 <Link to="/">Página inicial</Link>
-                {token !== null && <Link to="/profile">Minha Conta</Link>}
+                {userData && <Link to="/profile">Minha Conta</Link>}
                 <Link to="/ingressos">Ingressos</Link>
                 <Link to="/fotos">Fotos</Link>
                 
@@ -48,8 +46,8 @@ export function Header (props: headerProps) {
                     <p>{JSON.parse(ticketsInCart).length}</p>}
                 </span>
                 
-                {token === null && <Link to="/login">Login</Link>}
-                {token !== null && <Link to="/" onClick={handleLogout}>Logout</Link>}
+                {!userData && <Link to="/login">Login</Link>}
+                {userData && <Link to="/" onClick={handleLogout}>Logout</Link>}
             </nav>
         )
     }
