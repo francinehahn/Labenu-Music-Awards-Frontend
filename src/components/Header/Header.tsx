@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "../../images/LAMA_logo.png"
-import { HeaderDesktop, HeaderMobile, HeaderSection, MobileSymbol } from "./style"
+
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import logo from "../../images/LAMA_logo.png"
+
 import { useRequestData } from "../../hooks/useRequestData"
 import { baseUrl } from "../../constants/baseUrl"
+
+import { HeaderDesktop, HeaderMobile, HeaderSection, MobileSymbol } from "./style"
 
 interface headerProps {
     reload?: boolean
