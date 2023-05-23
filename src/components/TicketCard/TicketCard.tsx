@@ -1,4 +1,4 @@
-import { TicketSection } from "./style"
+import { Price, TicketSection } from "./style"
 
 interface ticketProps {
     id: string,
@@ -44,11 +44,12 @@ export function TicketCard (props: ticketProps) {
     
     return (
         <TicketSection>
+            <img src={props.img} alt="Imagem promocional do show"/>
+            
             <div>
-                <img src={props.img} alt="Imagem promocional do show"/>
                 <h4>{props.ticketName}</h4>
                 <p>{props.bandName}</p>
-                <p id="price">R${props.price},00</p>
+                <Price>R${props.price},00</Price>
                 <p>Horário: {props.startTime.toString()} - {props.endTime.toString()}</p>
                 <p>Ingressos disponíveis: {props.ticketsAvailable}</p>
             </div>

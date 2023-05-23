@@ -8,7 +8,7 @@ import { PurchaseCard } from "../../components/PurchaseCard/PurchaseCard"
 import { TicketRegistrationForm } from "../../components/TicketRegistrationForm/TicketRegistrationForm"
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { useRequestData } from "../../hooks/useRequestData"
-import { ProfileSection } from "./style"
+import { LoadingDiv, ProfileSection, Purchases, Title, UserInfo } from "./style"
 import { baseUrl } from "../../constants/baseUrl"
 
 interface purchase {
@@ -40,27 +40,32 @@ export function Profile () {
             <Header/>
 
             <ProfileSection>
-                {!isLoadingUser && dataUser && <div id="userInfo"><p>Usuário: {dataUser.name}</p></div>}
+                {!isLoadingUser && dataUser && (
+                    <UserInfo>
+                        <p>Usuário: {dataUser.name}</p>
+                    </UserInfo>
+                )}
 
-                {isLoadingPurchases && <div id="loadingDiv"><Loading color="black"/></div>}
+                {isLoadingPurchases && <LoadingDiv><Loading color="black"/></LoadingDiv>}
+                
                 {!isLoadingPurchases && dataPurchases && (
-                    <div id="purchases">
+                    <Purchases>
                         <h3>Minhas compras:</h3>
                         {renderDataPurchases}
-                    </div>
+                    </Purchases>
                 )}
                 {!isLoadingPurchases && !dataPurchases &&errorPurchases && <p>{errorPurchases}</p>}
 
 
                 {!isLoadingUser && dataUser && dataUser.role === "ADMIN" && (
                     <>
-                        <h3 className="registrationTitle">Registrar nova banda</h3>
+                        <Title>Registrar nova banda</Title>
                         <BandRegistrationForm reload={reload} setReload={setReload}/>
 
-                        <h3 className="registrationTitle">Registrar novo show</h3>
+                        <Title>Registrar novo show</Title>
                         <ConcertRegistrationForm reload={reload} setReload={setReload}/>
 
-                        <h3 className="registrationTitle">Registrar novo ingresso</h3>
+                        <Title>Registrar novo ingresso</Title>
                         <TicketRegistrationForm reload={reload} setReload={setReload}/> 
                     </>
                 )}

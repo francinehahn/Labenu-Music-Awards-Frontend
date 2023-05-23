@@ -6,63 +6,61 @@ export const CartSection = styled.div `
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0 5vw;
-    border-bottom: 1px solid grey;
-    margin-bottom: 5vh;
+    gap: 5rem;
 
-    @media screen and (min-width: 750px) {
-        gap: 5vw;
-        padding: 0 5vw;
-        width: 80vw;
-    }
-    @media screen and (min-width: 630px) and (max-width: 750px) {
-        gap: 5vw;
-        padding: 0 4vw;
+    padding: 0 5rem 1rem 5rem;
+    border-bottom: .5px solid grey;
+    margin-bottom: 1rem;
+    width: 80vw;
+
+    @media screen and (max-width: 1050px) {
+        gap: 2rem;
+        padding: 0 2rem 1rem 2rem;
         width: 90vw;
     }
-    @media screen and (max-width: 630px) {
-        gap: 3vw;
-        padding: 0 4vw;
+    @media screen and (max-width: 650px) {
+        flex-direction: column;
+        gap: .5rem;
         width: 95vw;
     }
 
     p {
-        margin-bottom: 1vh;
+        text-align: center;
         color: white;
     }
 
-    svg {
-        color: white;
-        width: 23px;
-        height: 23px;
-        margin-bottom: 1vh;
-        cursor: pointer;
-        :hover {
-            opacity: .5;
+    span {
+        display: flex;
+        gap: 5rem;
+
+        @media screen and (max-width: 1050px) {
+            gap: 2rem;
+        }
+
+        svg {
+            color: white;
+            width: 1.4rem;
+            height: 1.4rem;
+            cursor: pointer;
+            :hover {
+                opacity: .5;
+            }
         }
     }
 `
 
 export const Units = styled.div `
     display: flex;
-    margin-bottom: 1vh;
-    
-    @media screen and (min-width: 1000px) {
-        height: 5vh;
-    }
-    @media screen and (max-width: 1000px) {
-        height: 4vh;
-    }
+    align-items: baseline;
+    gap: .5rem;
     
     button {
-        font-size: 18px;
-        padding: 0 13px;
+        font-size: 1rem;
+        padding: .3rem .7rem;
         border: none;
         cursor: pointer;
     }
     p {
-        font-size: 16px;
-        padding: 7px 11px;
-        margin-bottom: 1vh;
+        font-size: 1rem;
     }
 `

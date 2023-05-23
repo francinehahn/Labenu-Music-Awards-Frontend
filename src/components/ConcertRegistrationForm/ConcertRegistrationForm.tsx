@@ -1,10 +1,13 @@
-import axios from "axios"
 import { useState } from "react"
+import axios from "axios"
+
 import { useForm } from "../../hooks/useForm"
 import { useRequestData } from "../../hooks/useRequestData"
+
 import { Loading } from "../Loading/Loading"
-import { FormSection } from "./style"
 import { baseUrl } from "../../constants/baseUrl"
+
+import { Error, SuccessMessage } from "./style"
 
 interface band {
     id: string,
@@ -63,7 +66,7 @@ export function ConcertRegistrationForm (props: concertProps) {
     }
 
     return (
-        <FormSection onSubmit={handleConcertRegistration}>
+        <form onSubmit={handleConcertRegistration}>
             <div>
                 <label htmlFor="weekDay">Dia da semana</label>
                 <select name="weekDay" value={formConcert.weekDay} onChange={onChangeConcert}>
@@ -77,13 +80,13 @@ export function ConcertRegistrationForm (props: concertProps) {
             <div>
                 <label htmlFor="startTime">Horário de início</label>
                 <input type={'text'} placeholder="15:00:00" name="startTime" value={formConcert.startTime} onChange={onChangeConcert}/>
-                <p>{startTimeError}</p>
+                <Error>{startTimeError}</Error>
             </div>
 
             <div>
                 <label htmlFor="endTime">Horário de encerramento</label>
                 <input type={'text'} placeholder="17:00:00" name="endTime" value={formConcert.endTime} onChange={onChangeConcert}/>
-                <p>{endTimeError}</p>
+                <Error>{endTimeError}</Error>
             </div>
 
             <div>
@@ -97,10 +100,10 @@ export function ConcertRegistrationForm (props: concertProps) {
                 </select>
             </div>
 
-            <p id="error">{axiosErrorConcert}</p>
-            <p id="successMessage">{successMessageConcert}</p>
+            <Error>{axiosErrorConcert}</Error>
+            <SuccessMessage>{successMessageConcert}</SuccessMessage>
 
             <button>{isLoadingConcert? <Loading color="orange"/> : 'Registrar show'}</button>
-        </FormSection>
+        </form>
     )
 }

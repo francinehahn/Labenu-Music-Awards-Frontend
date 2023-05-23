@@ -1,16 +1,21 @@
 import { useState, useRef } from "react"
+
+import {IoIosArrowDroprightCircle} from "react-icons/io"
+import {IoIosArrowDropleftCircle} from "react-icons/io"
+
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
 import { TicketCard } from "../../components/TicketCard/TicketCard"
+
 import { useRequestData } from "../../hooks/useRequestData"
-import { TicketsSection } from "./style"
+import { baseUrl } from "../../constants/baseUrl"
+
 import ticketFriday from "../../images/ticket-friday.png"
 import ticketSaturday from "../../images/ticket-saturday.png"
 import ticketSunday from "../../images/ticket-sunday.png"
-import {IoIosArrowDroprightCircle} from "react-icons/io"
-import {IoIosArrowDropleftCircle} from "react-icons/io"
-import { baseUrl } from "../../constants/baseUrl"
+
+import { ButtonScroll, Error, LoadingDiv, TicketDiv, TicketDivWrapper, TicketsSection } from "./style"
 
 interface ticket {
     id: string,
@@ -111,33 +116,33 @@ export function Tickets () {
             <Header/>
 
             <TicketsSection>
-                {(isLoadingFriday && isLoadingSaturday && isLoadingSunday) && <div id="loading"><Loading color="black"/></div>}
+                {(isLoadingFriday && isLoadingSaturday && isLoadingSunday) && <LoadingDiv><Loading color="black"/></LoadingDiv>}
                 {!isLoadingFriday && dataFriday && (
-                    <div className="ticket-div-wrapper">
-                        <button className="buttonScroll" onClick={handleLeftClickFri}><IoIosArrowDropleftCircle/></button>
-                        <div className="ticket-div" ref={carouselFriday}>{renderdataFriday}</div>
-                        <button className="buttonScroll" onClick={handleRightClickFri}><IoIosArrowDroprightCircle/></button>
-                    </div>
+                    <TicketDivWrapper>
+                        <ButtonScroll onClick={handleLeftClickFri}><IoIosArrowDropleftCircle/></ButtonScroll>
+                        <TicketDiv ref={carouselFriday}>{renderdataFriday}</TicketDiv>
+                        <ButtonScroll onClick={handleRightClickFri}><IoIosArrowDroprightCircle/></ButtonScroll>
+                    </TicketDivWrapper>
                 )}
-                {!isLoadingFriday && !dataFriday && errorFriday && <p className="error">{errorFriday}</p>}
+                {!isLoadingFriday && !dataFriday && errorFriday && <Error>{errorFriday}</Error>}
 
                 {!isLoadingSaturday && dataSaturday && (
-                    <div className="ticket-div-wrapper">
-                        <button className="buttonScroll" onClick={handleLeftClickSat}><IoIosArrowDropleftCircle/></button>
-                        <div className="ticket-div" ref={carouselSaturday}>{renderdataSaturday}</div>
-                        <button className="buttonScroll" onClick={handleRightClickSat}><IoIosArrowDroprightCircle/></button>
-                    </div>
+                    <TicketDivWrapper>
+                        <ButtonScroll onClick={handleLeftClickSat}><IoIosArrowDropleftCircle/></ButtonScroll>
+                        <TicketDiv ref={carouselSaturday}>{renderdataSaturday}</TicketDiv>
+                        <ButtonScroll onClick={handleRightClickSat}><IoIosArrowDroprightCircle/></ButtonScroll>
+                    </TicketDivWrapper>
                 )}
-                {!isLoadingSaturday && !dataSaturday && errorSaturday && <p className="error">{errorSaturday}</p>}
+                {!isLoadingSaturday && !dataSaturday && errorSaturday && <Error>{errorSaturday}</Error>}
 
                 {!isLoadingSunday && dataSunday && (
-                    <div className="ticket-div-wrapper">
-                        <button className="buttonScroll" onClick={handleLeftClickSun}><IoIosArrowDropleftCircle/></button>
-                        <div className="ticket-div" ref={carouselSunday}>{renderdataSunday}</div>
-                        <button className="buttonScroll" onClick={handleRightClickSun}><IoIosArrowDroprightCircle/></button>
-                    </div>
+                    <TicketDivWrapper>
+                        <ButtonScroll onClick={handleLeftClickSun}><IoIosArrowDropleftCircle/></ButtonScroll>
+                        <TicketDiv ref={carouselSunday}>{renderdataSunday}</TicketDiv>
+                        <ButtonScroll onClick={handleRightClickSun}><IoIosArrowDroprightCircle/></ButtonScroll>
+                    </TicketDivWrapper>
                 )}
-                {!isLoadingSunday && !dataSunday && errorSunday && <p className="error">{errorSunday}</p>}
+                {!isLoadingSunday && !dataSunday && errorSunday && <Error>{errorSunday}</Error>}
             </TicketsSection>
 
             <Footer/>

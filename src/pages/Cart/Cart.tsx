@@ -1,12 +1,15 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+
+import axios from "axios"
+
+import { baseUrl } from "../../constants/baseUrl"
 import { CartCard } from "../../components/CartCard/CartCard"
 import { Footer } from "../../components/Footer/Footer"
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
-import { ButtonDiv, CartSection } from "./style"
-import { baseUrl } from "../../constants/baseUrl"
+
+import { ButtonDiv, CartSection, EmptyCart, TotalPrice } from "./style"
 
 interface products {
     id: string,
@@ -77,13 +80,13 @@ export function Cart () {
             <Header reload={reload}/>
 
             <CartSection>
-                {(productsInCart === null || JSON.parse(productsInCart).length === 0) && <p id="empty-cart">Carrinho vazio.</p>}
+                {(productsInCart === null || JSON.parse(productsInCart).length === 0) && <EmptyCart>Carrinho vazio.</EmptyCart>}
                 {renderData}
-                {totalPrice > 0 && <p id="totalPrice">Valor total: R${totalPrice.toFixed(2).toString().replace(".", ",")}</p>}
+                {totalPrice > 0 && <TotalPrice>Valor total: R${totalPrice.toFixed(2).toString().replace(".", ",")}</TotalPrice>}
             </CartSection>
 
             <ButtonDiv>
-                {productsInCart !== null && JSON.parse(productsInCart).length > 0 && <button id="button" onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>}
+                {productsInCart !== null && JSON.parse(productsInCart).length > 0 && <button onClick={handlePayment}>{isLoading? <Loading color={"orange"}/> : "Finalizar a compra"}</button>}
             </ButtonDiv>
 
             <Footer/>

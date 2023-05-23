@@ -12,16 +12,16 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         ::-webkit-scrollbar {
-            width: 12px;
+            width: .75rem;
             background-color: #434343;
         }
         ::-webkit-scrollbar-track {
             background: #434343;
-            border-radius: 20px;
+            border-radius: 1.25rem;
         }
         ::-webkit-scrollbar-thumb {
             background-color: #757575;
-            border-radius: 20px;
+            border-radius: 1.25rem;
         }
     }
 
@@ -33,35 +33,27 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     label {
-        font-size: 16px;
+        font-size: 1rem;
         color: white;
     }
 
     input, select {
         background-color: white;
-        font-size: 16px;
+        font-size: 1rem;
         color: black;
-        padding: .7vh .5vw;
+        padding: .3rem;
         border: none;
+        width: 30rem;
 
         :focus {
             outline: none;
         }
-        
-        @media screen and (min-width: 1200px) {
-            width: 30vw;
-        }
-        @media screen and (min-width: 1000px) and (max-width: 1200px) {
-            width: 35vw;
-        }
-        @media screen and (min-width: 800px) and (max-width: 1000px) {
-            width: 45vw;
-        }
-        @media screen and (min-width: 600px) and (max-width: 800px) {
-            width: 60vw;
+    
+        @media screen and (max-width: 1000px) {
+            width: 25rem;
         }
         @media screen and (max-width: 600px) {
-            width: 80vw;
+            width: 20rem;
         }
     }
 
@@ -69,9 +61,9 @@ export const GlobalStyle = createGlobalStyle`
         display: block;
         margin: 0 auto 0 auto;
         border: none;
-        border-radius: 35px;
-        padding: 8px 45px;
-        font-size: 18px;
+        border-radius: 2.19rem;
+        padding: .5rem 2.81rem;
+        font-size: 1.125rem;
         font-weight: 600;
         color: white;
         background-color: var(--dark-orange);
@@ -88,37 +80,37 @@ export const GlobalStyle = createGlobalStyle`
 
     h2 {
         @media screen and (min-width: 1000px) {
-            font-size: 32px;
+            font-size: 2rem;
         }
         @media screen and (max-width: 1000px) {
-            font-size: 28px;
+            font-size: 1.75rem;
         }
     }
 
     h3 {
         @media screen and (min-width: 1000px) {
-            font-size: 28px;
+            font-size: 1.75rem;
         }
         @media screen and (max-width: 1000px) {
-            font-size: 24px;
+            font-size: 1.5rem;
         }
     }
 
     h4 {
         @media screen and (min-width: 1000px) {
-            font-size: 22px;
+            font-size: 1.375rem;
         }
         @media screen and (max-width: 1000px) {
-            font-size: 18px;
+            font-size: 1.125rem;
         }
     }
 
     h5 {
         @media screen and (min-width: 1000px) {
-            font-size: 20px;
+            font-size: 1.25rem;
         }
         @media screen and (max-width: 1000px) {
-            font-size: 18px;
+            font-size: 1.125rem;
         }
     }
 `

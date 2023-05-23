@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const CartSection = styled.section `
-    margin-top: 6vh;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,24 +21,25 @@ export const CartSection = styled.section `
     @media screen and (max-width: 500px) {
         min-height: 60vh;
     }
-
-    #totalPrice {
-        color: red;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    #empty-cart {
-        color: white;
-        font-size: 18px;
-        text-align: center;
-        padding: 34vh 0;
-    }
 `
 
 export const ButtonDiv = styled.div `
     button {
-        margin-bottom: 5vh;
+        margin: 3rem auto;
     }
+`
+
+export const TotalPrice = styled.p `
+    color: green;
+    font-size: 1.3rem;
+    line-height: 3rem;
+    font-weight: 700;
+    text-align: center;
+`
+
+export const EmptyCart = styled.p `
+    color: white;
+    font-size: 1.125rem;
+    text-align: center;
+    padding: 27vh 0 38vh 0;
 `

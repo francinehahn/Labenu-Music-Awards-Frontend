@@ -4,51 +4,50 @@ export const TicketSection = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2vh;
-    padding: 20px 20px 30px 20px;
+    gap: 1rem;
+    padding: 1.25rem 1.25rem 1.875rem 1.25rem;
     background-color: #ffffff;
     border-radius: 5px;
     
     @media screen and (min-width: 800px) {
-        min-width: 270px; 
-        max-width: 280px;    
+        min-width: 16.875rem; 
+        max-width: 17.5rem;
     }
     @media screen and (max-width: 800px) {
-        min-width: 290px; 
-        max-width: 300px;    
+        min-width: 18.125rem;
+        max-width: 18.75rem;    
+    }
+
+    img {
+        width: 100%;
+        border-radius: 5px 5px 0 0;
     }
 
     div {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
         background-color: white;
-
-        img {
-            width: 100%;
-            border-radius: 5px 5px 0 0;
-        }
 
         h4 {
             color: black;
             background-color: white;
-            padding: 1vh 0;
-            line-height: 4vh;
+            line-height: 1.5rem;
         }
 
         p {
-            font-size: 16px;
-            color: black;
             background-color: white;
-        }
-
-        #price {
-            font-size: 24px;
-            font-weight: 600;
-            color: green;
-            background-color: white;
-            padding: .5vh 0;
         }
     }
 
     button {
-        margin-bottom: 1vh;
+        margin-bottom: 1rem;
     }
+`
+
+export const Price = styled.p `
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: green;
+    background-color: white;
 `

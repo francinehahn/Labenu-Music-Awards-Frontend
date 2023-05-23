@@ -13,7 +13,7 @@ export const Container = styled.div `
 
     p {
         color: white;
-        font-size: 15px;
+        font-size: .938rem;
         text-align: center;
     }
 `

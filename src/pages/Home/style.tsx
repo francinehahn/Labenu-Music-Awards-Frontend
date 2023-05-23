@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 
-export const HomeSection = styled.section `
+export const HomeSection = styled.div `
     background-color: black;
     min-height: 100vh;
 
@@ -9,76 +9,69 @@ export const HomeSection = styled.section `
         width: 100%;
     }
 
-    #imgDesktop {
-        @media screen and (min-width: 800px) {
-            display: block;
-        }
-        @media screen and (max-width: 800px) {
-            display: none;
-        }
-    }
-
-    #imgMobile {
-        @media screen and (min-width: 800px) {
-            display: none;
-        }
-        @media screen and (max-width: 800px) {
-            display: block;
-        }
-    }
-
-    h2 {
-        color: white;
-        text-align: center;
-        margin: 8vh 0 5vh 0;
-    }
-
     section {
         display: flex;
         justify-content: center;
+        gap: 10rem;
         flex-wrap: wrap;
-        padding: 10vh 0 5vh 0;
+        margin: 3rem 4rem;
 
-        @media screen and (min-width: 1400px) {
-            margin: 0 5vw;
-            gap: 12vw;
+        @media screen and (max-width: 1350px) {
+            gap: 7rem;
         }
-        @media screen and (min-width: 1000px) and (max-width: 1400px) {
-            margin: 0 5vw;
-            gap: 8vw;
+        @media screen and (max-width: 1280px) {
+            gap: 4rem;
         }
-        @media screen and (min-width: 750px) and (max-width: 1000px) {
-            margin: 0 10vw;
-            gap: 8vw;
+        @media screen and (max-width: 680px) {
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 5rem;
         }
-        @media screen and (max-width: 750px) {
-            margin: 0 15vw;
-            gap: 8vw;
-        }
-
-        .div-home {
-            p {
-                color: white;
-            }
-
-            .title-week-day {
-                color: var(--dark-orange);
-                padding: 1vh 0;
-            }
-
-            div {
-                margin-bottom: 2vh;
-                @media screen and (min-width: 1000px) {
-                    gap: 1vw;
-                }
-                @media screen and (max-width: 1000px) {
-                    gap: 1.5vw;
-                }
-            }
+        @media screen and (max-width: 480px) {
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 2rem;
         }
     }
 
     button {
-        margin: 1vh auto 6vh auto;
+        margin: 1rem auto 3rem auto;
+    }
+`
+
+export const ImgDesktop = styled.img `
+    @media screen and (min-width: 800px) {
+        display: block;
+    }
+    @media screen and (max-width: 800px) {
+        display: none;
+    }
+`
+
+export const ImgMobile = styled.img `
+    @media screen and (min-width: 800px) {
+        display: none;
+    }
+    @media screen and (max-width: 800px) {
+        display: block;
+    }
+`
+
+export const DivHome = styled.div `
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    p {
+        color: white;
+    }
+
+    h3 {
+        color: var(--dark-orange);
+    }
+
+    div {
+        margin-bottom: 1rem;
+        gap: 1rem;
     }
 `

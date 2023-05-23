@@ -1,10 +1,14 @@
-import axios from "axios"
 import { useState } from "react"
+import axios from "axios"
+
 import { validateBandName, validateUserName } from "../../constants/constants"
+import { baseUrl } from "../../constants/baseUrl"
+
 import { useForm } from "../../hooks/useForm"
 import { Loading } from "../Loading/Loading"
-import { FormSection } from "./style"
-import { baseUrl } from "../../constants/baseUrl"
+
+import { AxiosError, FormSection, SuccessMessage } from "./style"
+
 
 interface bandProps {
     reload: boolean,
@@ -79,8 +83,8 @@ export function BandRegistrationForm (props: bandProps) {
                 <p>{responsibleError}</p>
             </div>
 
-            <p id="error">{axiosError}</p>
-            <p id="successMessage">{successMessage}</p>
+            <AxiosError>{axiosError}</AxiosError>
+            <SuccessMessage>{successMessage}</SuccessMessage>
 
             <button>{isLoadingBand? <Loading color="orange"/> : 'Registrar banda'}</button>
         </FormSection>

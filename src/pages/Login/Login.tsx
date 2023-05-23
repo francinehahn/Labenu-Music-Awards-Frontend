@@ -1,13 +1,16 @@
-import axios from "axios"
 import { useState } from "react"
-import { Header } from "../../components/Header/Header"
-import { validateEmail, validatePassword } from "../../constants/constants"
-import { useForm } from "../../hooks/useForm"
-import { LoginSection, PasswordInput } from "./style"
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
 import { useNavigate } from "react-router-dom"
+
+import axios from "axios"
+import { BsEye, BsEyeSlash } from 'react-icons/bs'
+
+import { useForm } from "../../hooks/useForm"
+import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
 import { baseUrl } from "../../constants/baseUrl"
+import { validateEmail, validatePassword } from "../../constants/constants"
+
+import { LoginSection, PasswordInput } from "./style"
 
 
 export function Login () {
@@ -54,7 +57,7 @@ export function Login () {
             <Header/>
 
             <LoginSection>
-                <h3>Informe os seus dados para acessar a sua conta</h3>
+                <h3>Informe seus dados para acessar a sua conta</h3>
 
                 <form onSubmit={handleLogin}>
                     <div>

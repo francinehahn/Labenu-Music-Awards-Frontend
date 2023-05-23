@@ -1,14 +1,18 @@
-import axios from "axios"
 import { useState } from "react"
+
+import axios from "axios"
+
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
+
 import { validateImageUrl } from "../../constants/constants"
+import { baseUrl } from "../../constants/baseUrl"
+
 import { useForm } from "../../hooks/useForm"
 import { useProtectedPage } from "../../hooks/useProtectedPage"
 import { useRequestData } from "../../hooks/useRequestData"
-import { LoadingDiv, PhotoForm, Unauthorized } from "./style"
-import { baseUrl } from "../../constants/baseUrl"
 
+import { Error, LoadingDiv, PhotoForm, SuccessMessage, Unauthorized } from "./style"
 
 export function RegisterPhotoForm () {
     useProtectedPage()
@@ -74,8 +78,8 @@ export function RegisterPhotoForm () {
                         </select>
                     </div>
 
-                    <p id="error">{axiosPhotoError}</p>
-                    <p id="successMessage">{successPhotoMessage}</p>
+                    <Error>{axiosPhotoError}</Error>
+                    <SuccessMessage>{successPhotoMessage}</SuccessMessage>
 
                     <button>{isLoadingPhoto? <Loading color="orange"/> : 'Postar'}</button>
                 </PhotoForm>
