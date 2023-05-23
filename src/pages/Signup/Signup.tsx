@@ -1,16 +1,17 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import axios from "axios"
 import { BsEye, BsEyeSlash } from "react-icons/bs"
 
 import { Header } from "../../components/Header/Header"
 import { Loading } from "../../components/Loading/Loading"
+
 import { validateEmail, validateUserName, validatePassword } from "../../constants/constants"
 import { baseUrl } from "../../constants/baseUrl"
 import { useForm } from "../../hooks/useForm"
 
 import { AxiosError, PasswordInput, SignupSection, SuccessMessage } from "./style"
-
 
 export function Signup () {
     const [form, onChange, clearInputs] = useForm({name: "", email: "", password: "", confirmPassword: "", role: ""})
@@ -23,6 +24,9 @@ export function Signup () {
     const [axiosError, setAxiosError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [inputType, setInputType] = useState("password")
+    const [inputType2, setInputType2] = useState("password")
+
+    const navigate = useNavigate()
 
     const handleSignup = (e: any) => {
         e.preventDefault()
@@ -36,7 +40,7 @@ export function Signup () {
         setSuccessMessage("")
 
         if (!validateUserName(form.name)) {
-            setErrorName("Forneça seu nome completo sem o uso de acentuação.")
+            setErrorName("Forneça seu nome completo.")
             setIsLoading(false)
         }
         if (!validateEmail(form.email)) {
@@ -66,11 +70,11 @@ export function Signup () {
             }
 
             axios.post(`${baseUrl}users/signup`, body)
-            .then(response => {
-                localStorage.setItem("token", response.data.token)
+            .then(() => {
                 setSuccessMessage("Conta criada com sucesso!")
                 clearInputs()
                 setIsLoading(false)
+                setTimeout(() => navigate("/login"), 2500)
             })
             .catch(error => {
                 setAxiosError(error.response.data)
@@ -111,8 +115,8 @@ export function Signup () {
                     <div>
                         <label htmlFor="confirmPassword">Confirme a senha</label>
                         <PasswordInput>
-                            <input type={inputType} placeholder="**********" name="confirmPassword" value={form.confirmPassword} onChange={onChange}/>
-                            {inputType === "text"? <BsEye onClick={() => setInputType("password")}/> : <BsEyeSlash onClick={() => setInputType("text")}/>}
+                            <input type={inputType2} placeholder="**********" name="confirmPassword" value={form.confirmPassword} onChange={onChange}/>
+                            {inputType2 === "text"? <BsEye onClick={() => setInputType2("password")}/> : <BsEyeSlash onClick={() => setInputType2("text")}/>}
                         </PasswordInput>
                         <p>{errorConfirmPassword}</p>
                     </div>

@@ -1,4 +1,4 @@
-export const validateUserName = (name: string) => /(?=^.{3,60}$)^[A-Z][a-z]+(?:[ ](?:das?|dos?|de|e|[A-Z][a-z]+))*$/.test(name)
+export const validateUserName = (name: string) => name.length > 6 && name.includes(" ")
 export const validateBandName = (name: string) => /.{3,180}/.test(name)
 export const validateTicketName = (name: string) => /.{8,180}/.test(name)
 export const validateEmail = (email: string) => /[a-zA-Z0-9]+@[a-z]{3}[.a-z]?/.test(email)
