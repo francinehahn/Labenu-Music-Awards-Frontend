@@ -11,6 +11,7 @@ import { baseUrl } from "../../constants/baseUrl"
 import { validateEmail, validatePassword } from "../../constants/constants"
 
 import { LoginSection, PasswordInput } from "./style"
+import { Link } from "react-router-dom"
 
 
 export function Login () {
@@ -80,7 +81,7 @@ export function Login () {
 
                 <span>
                     <p>Não possui uma conta?</p>
-                    <a href="/signup">Clique aqui</a>
+                    <Link to="/signup">Clique aqui</Link>
                 </span>
             </LoginSection>
         </>
